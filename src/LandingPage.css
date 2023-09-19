@@ -1,0 +1,55 @@
+body{
+    background-color: white;
+}
+
+.Logo{
+    width:210px;
+}
+
+#hairelogo{
+    width:160px;
+    height: 120px;
+    padding-top: 20px;
+}
+h1,h4{
+font-family: 'Poppins';
+}    
+
+.StreamlineInterviews{
+    color: black;
+    padding-left: 50px;
+    margin-top: 50px;
+}
+.mainheading{
+    font-size: 50px;
+}
+
+.subheading{
+    font-size: 20px;
+}
+.VectorImage{
+    margin-left: 780px;
+    margin-top: -340px;
+    position: relative;
+}
+
+.getstarted{
+    
+    color: white;
+    background-color: #007E85;
+    border: #007E85;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    margin-left: 190px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#upperdecoration{
+    position: absolute;
+    margin-left: 540px;
+    margin-top: -60px;
+    width: 650px;
+}
