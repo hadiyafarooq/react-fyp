@@ -1,0 +1,48 @@
+.interviewsetupbody {
+  text-align: center;
+  padding-top: 3%;
+} 
+.StartInterview{
+  background-color: white;
+  width: 93%;
+  margin-left: 5%;
+  height: 92%;
+  border-radius: 40px 0 0 40px;
+}
+
+.Wholescreen{
+  background-color: #007E85; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Interviewbutton {
+  background-color: #007E85;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Interviewbutton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.video-container {
+  margin: 20px;
+}
+
+video {
+  max-width: 100%;
+  height: 50%;
+}
+
+.Interviewbutton:hover {
+  background-color: #00aeb5;
+}

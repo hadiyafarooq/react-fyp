@@ -5,7 +5,6 @@ body{
 .Logo{
     width:100%;
     position: relative;
-    border: 2px solid red;
 }
 
 #hairelogo{
@@ -13,26 +12,32 @@ body{
     height: 120px;
     padding-top: 20px;
 }
+
 h1,h4{
 font-family: 'Arial';
 }    
 
 .StreamlineInterviews{
     color: black;
-    /*padding-left: 50px;
-    margin-top: 50px;*/
 }
 .mainheading{
     font-size: 50px;
+    width: 50%;
+    padding-top: 5%;
+    margin-left: 5%;
 }
 
 .subheading{
     font-size: 20px;
+    width: 50%;
+    padding-top: 1%;
+    margin-left: 5%;
 }
 .VectorImage{
-    margin-left: 780px;
-    margin-top: -340px;
-    position: relative;
+    width: 40%;
+    top: 20%;
+    right: 0;
+    position: absolute;
 }
 
 .getstarted{
@@ -41,18 +46,17 @@ font-family: 'Arial';
     background-color: #007E85;
     border: #007E85;
     border-radius: 15px;
-    width: 150px;
+    width: 13%;
     height: 50px;
-    margin-left: 190px;
-    margin-top: 10px;
+    margin-top: 2%;
+    margin-left: 20%;
     font-size: 15px;
     font-weight: bold;
+    align-items: center;
 }
 
 #upperdecoration{
     position: absolute;
-    /*margin-left: 598px;
-    margin-top: -10px;*/
     width: 30%;
     top: 0;
     right: 0;
@@ -60,7 +64,8 @@ font-family: 'Arial';
 
 #downdecoration{
     position: absolute;
-    margin-left: -400px;
-    margin-top: 100px;
+    width: 30%;
+    top: 85%;
+    right: 70%;
 
 }
