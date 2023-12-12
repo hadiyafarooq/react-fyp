@@ -6,14 +6,14 @@ h1{
 font-family: 'Arial';
 }    
 
-#upperdecoration{
+#upperdecorationlogin{
     position: absolute;
     width: 30%;
     top: 0;
     right: 0;
 }
 
-#downdecoration{
+#downdecorationlogin{
     position: absolute;
     width: 30%;
     top: 85%;
@@ -49,12 +49,12 @@ font-family: 'Arial';
     
 }
 
-.usernamediv{
+.usernamedivlogin{
     margin-top: 5%;
     margin-left: 5%;
 }
 
-.passworddiv{
+.passworddivlogin{
     margin-top: 5%;
     margin-left: 5%;
 }
@@ -67,13 +67,13 @@ font-family: 'Arial';
     right: 22%;
 }
 
-.UsernamePassword{
+.UsernamePasswordLogin{
     margin-top: 10%;
     font-size: 15px;
     font-weight: 450;
 }
 
-.credentials{
+.credentialslogin{
     height: 30px;
     width: 95%;
     border: none;
@@ -82,16 +82,24 @@ font-family: 'Arial';
     padding-left:2%;
 }
 
-.errororforgot{
+.errororforgotlogin{
     margin-top: 4%;
 }
-.error{
+.successlogin {
+    margin-left: 5%;
+    font-size: 10px;
+    display: none;
+  }
+  
+  .errorlogin {
     margin-left: 5%;
     color: red;
     font-size: 10px;
-}
+    display: none;
+  }
+  
 
-.forgot{
+.forgotlogin{
     margin-left: 20%;
     font-size: 10px;
     font-weight: bold;
@@ -110,16 +118,16 @@ font-family: 'Arial';
     color: white;
 }
 
-.CheckifSignUp{
+.CheckifSignUpLogin{
 margin-top: 4%;
 text-align: center;
 }
 
-.account{
+.accountlogin{
     font-size: 10px;
 }
 
-.SignUp{
+.SignUpLogin{
     margin-left: 1%;
     font-weight: bold;
     font-size: 10px;

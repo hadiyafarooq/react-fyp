@@ -4,26 +4,30 @@ import UpperDecor from "../../allimages/updecoration.png"
 import LowerDecor from "../../allimages/downdecoration.png"
 import CoverImage from "../../allimages/CoverImage.svg"
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 
 export default function Landing(){
     return(
         <>
-        <div className="Logo">
-        <img id ="hairelogo" src={Logo} alt="Logo" />
-        <img id ="upperdecoration" src= {UpperDecor} alt="Decor" />
-        </div>
         
-        <div className="StreamlineInterviews">
-        <h1 className="mainheading">Streamline your interviews<br /> like never before</h1>
-        <h4 className="subheading">Sick of time-consuming interviews? Let AI do the heavy lifting!</h4>
-        <Link to ="/Login"><button className="getstarted">GET STARTED</button>
-        </Link>
-        <img id ="downdecoration" src={LowerDecor} alt="Decor"/>
+        <div className="LandingLogo">
+        <img id ="hairelandinglogo" src={Logo} alt="Logo" />
+        <img id ="upperdecorationlanding" src= {UpperDecor} alt="Decor" />
         </div>
-     
-        <div className="VectorImage">
+        <Fade left duration={1000} delay={200}>   
+        <div className="StreamlineInterviewsLanding">
+        <h1 className="mainheadinglanding">Streamline your interviews<br /> like never before</h1>
+        <h4 className="subheadinglanding">Sick of time-consuming interviews? Let AI do the heavy lifting!</h4>
+        <Link to ="/Login"><button className="getstartedlanding">GET STARTED</button>
+        </Link>
+        <img id ="downdecorationlanding" src={LowerDecor} alt="Decor"/>
+        </div>
+        </Fade>
+        <Fade left duration={1000} delay={200}>   
+        <div className="VectorImageLanding">
         <img src={CoverImage} alt="VectorImage" />
         </div>
+        </Fade>
         </>
     );
 }
