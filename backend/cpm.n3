@@ -1,0 +1,39 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix yago: <http://dbpedia.org/class/yago/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dbc: <http://dbpedia.org/resource/Category:> .
+@base <http://dbpedia.org/resource/> .
+
+<http://dbpedia.org/resource/CPlusPlus> dbo:is_a dbo:High-level_programming_language .
+<http://dbpedia.org/resource/CPlusPlus> dbo:designed_by <http://dbpedia.org/resource/Bjarne_Stroustrup> .
+<http://dbpedia.org/resource/CPlusPlus> dbo:supports dbo:Object-oriented_programming .
+<http://dbpedia.org/resource/CPlusPlus> dbo:features "Static typing, Cross-platform support, Standard Template Library (STL)" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:related_framework dbo:Qt .
+
+<http://dbpedia.org/resource/CPlusPlus> dbo:use_cases "Systems programming, Game development, Embedded systems" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:first_released "October 14, 1985" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:core_philosophy "Performance and efficiency" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:official_website <https://isocpp.org> .
+<http://dbpedia.org/resource/CPlusPlus> dbo:loop_constructs "for, while, do-while" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:used_libraries dbo:STL,
+                 dbo:Qt,
+                 dbo:OpenCV,
+                 dbo:SFML,
+                 dbo:Eigen.
+<http://dbpedia.org/resource/CPlusPlus> dbo:key_features "Static typing, Strongly-typed, High performance, Low-level memory access" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:community_support "Yes" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:latest_version "C++20" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:data_types "int, double, float, char, bool" .
+<http://dbpedia.org/resource/CPlusPlus> dbo:programming_constructs "Functions, Templates, Loops, Classes" .
+<http://dbpedia.org/resource/Qt> dbo:framework_purpose "Web framework" .
+<http://dbpedia.org/resource/OpenCV> dbo:framework_purpose "Computer vision" .
+<http://dbpedia.org/resource/SFML> dbo:library_purpose "Game development" .
+<http://dbpedia.org/resource/Poco_C++_Libraries> dbo:library_purpose "Network programming" .
+<http://dbpedia.org/resource/Eigen> dbo:library_purpose "Linear algebra" .
