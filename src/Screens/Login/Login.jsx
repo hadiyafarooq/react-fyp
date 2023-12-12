@@ -2,7 +2,9 @@ import "./Login.css"
 import UpperDecor from "../../allimages/updecoration.png"
 import LowerDecor from "../../allimages/downdecoration.png"
 import LoginImage from "../../allimages/LoginImage.png"
-import { Link } from 'react-router-dom'
+import { Link,useState } from 'react-router-dom'
+import React, { useState } from 'react';
+
 export default function Login(){
     return(
         <>
