@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import WelcomeGraphics from "../../allimages/WelcomeGraphics.png"
 import UserIcon from "../../allimages/usericon.png" 
+import Fade from "react-reveal/Fade";
 
 export default function UserDashboard(){
     const [isOpen, setIsOpen] = useState(false);
@@ -25,11 +26,11 @@ export default function UserDashboard(){
 
     return(
         <>
-        <div className="Wholescreen">  
-        <div className="StartInterview">
+        <div className="WholescreenIntervieweeDashboard">  
+        <div className="StartInterviewIntervieweeDashboard">
         <div className = "userheader">
         <img id ="usericon" src= {UserIcon} alt="UserIcon" />
-        <p className="usernameheader">Hadiya Farooq</p>
+        <p className="usernameheader">Meerub Shami</p>
         <div className="dropdown">
       <button className="dropdown-button" onClick={toggleDropdown}>
         <span className={`arrow ${isOpen ? 'open' : ''}`}>&#9660;</span>
@@ -37,7 +38,7 @@ export default function UserDashboard(){
       {isOpen && (
         <div className="dropdown-content">
           <ul>
-          <Link to ="/RecruiterDashboard"><li>Update Profile</li>
+          <Link to ="/UpdateProfile"><li>Update Profile</li>
           </Link>
           <Link to ="/Login"><li>Log Out</li>
           </Link>
@@ -46,19 +47,23 @@ export default function UserDashboard(){
       )}
         </div>
         </div>
-        <div className="WelcomeGraphic">
-        <h1 className="Welcome">WELCOME!</h1>
-        <h1 className="date">{currentDate}</h1>
+        <div className="WelcomeGraphicIntervieweeDashboard">
+          
+        <h1 className="WelcomeIntervieweeDashboard">WELCOME!</h1>
+        <h1 className="dateIntervieweeDashboard">{currentDate}</h1>
         <img id ="welcomeimage" src= {WelcomeGraphics} alt="WelcomeGraphic" />
-        </div>    
+        </div>   
+        <Fade left duration={1000} delay={200}>
         <div className= "contentincenterinterviewee">
         <h1 className="mainheadinguser">Start your Interview!</h1>
         <h6 className="subheadinguser">As soon as you click the button below, you will be directed to the interview room</h6>
         <Link to ="/InterviewSetup"><button className="getstarteduser">START INTERVIEW</button>
         </Link>
         </div>
+        </Fade>
         </div>
         </div>  
+        
         </>
     );
 }

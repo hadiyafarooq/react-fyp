@@ -2,12 +2,12 @@ body{
     background-color: white;
 }
 
-.Logo{
+.LandingLogo{
     width:100%;
     position: relative;
 }
 
-#hairelogo{
+#hairelandinglogo{
     width:160px;
     height: 120px;
     padding-top: 20px;
@@ -17,30 +17,30 @@ h1,h4{
 font-family: 'Arial';
 }    
 
-.StreamlineInterviews{
+.StreamlineInterviewsLanding{
     color: black;
 }
-.mainheading{
+.mainheadinglanding{
     font-size: 50px;
     width: 50%;
     padding-top: 5%;
     margin-left: 5%;
 }
 
-.subheading{
+.subheadinglanding{
     font-size: 20px;
     width: 50%;
     padding-top: 1%;
     margin-left: 5%;
 }
-.VectorImage{
+.VectorImageLanding{
     width: 40%;
     top: 20%;
     right: 0;
     position: absolute;
 }
 
-.getstarted{
+.getstartedlanding{
     
     color: white;
     background-color: #007E85;
@@ -55,14 +55,14 @@ font-family: 'Arial';
     align-items: center;
 }
 
-#upperdecoration{
+#upperdecorationlanding{
     position: absolute;
     width: 30%;
     top: 0;
     right: 0;
 }
 
-#downdecoration{
+#downdecorationlanding{
     position: absolute;
     width: 30%;
     top: 85%;

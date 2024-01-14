@@ -1,0 +1,53 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix yago: <http://dbpedia.org/class/yago/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dbc: <http://dbpedia.org/resource/Category:> .
+@prefix fw: <https://dbpedia.org/page/> .
+@base <http://dbpedia.org/resource/> .
+
+<http://dbpedia.org/resource/Java> dbo:is_a dbo:High-level_programming_language .
+<http://dbpedia.org/resource/Java> dbo:designed_by <http://dbpedia.org/resource/James_Gosling> .
+<http://dbpedia.org/resource/Java> dbo:supports dbo:Object-oriented_programming .
+<http://dbpedia.org/resource/Java> dbo:features "Platform independence, Automatic memory management, Rich standard library" .
+<http://dbpedia.org/resource/Java> dbo:related_framework fw:Spring_Framework .
+<http://dbpedia.org/resource/Java> dbo:use_cases "Web development, Mobile app development, Enterprise software" .
+<http://dbpedia.org/resource/Java> dbo:first_released "May 23, 1995" .
+
+<http://dbpedia.org/resource/Java> dbo:core_philosophy "Write Once, Run Anywhere" .
+
+    
+
+<http://dbpedia.org/resource/Java> dbo:official_website <https://www.oracle.com/java/> .
+<http://dbpedia.org/resource/Java> dbo:loop_constructs "for, while, do-while" .
+<http://dbpedia.org/resource/Java> dbo:used_libraries dbo:JavaFX, 
+                 dbo:Spring_Framework, 
+                 dbo:Hibernate,
+                 dbo:Log4j,
+                 dbo:Apache_Struts,
+                 dbo:JUnit,
+                 dbo:Maven,
+                 dbo:Tomcat. 
+<http://dbpedia.org/resource/Java> dbo:key_features "Platform independence, Garbage collection, Multithreading" .
+<http://dbpedia.org/resource/Java> dbo:has_community_support "Yes" .
+<http://dbpedia.org/resource/Java> dbo:latest_version "Java 17" .
+<http://dbpedia.org/resource/Java> dbo:data_types "int, double, char, bool" .
+<http://dbpedia.org/resource/Java> dbo:programming_constructs "Classes, Inheritance, Interfaces" .
+<http://dbpedia.org/resource/Spring_Framework> dbo:framework_purpose "Enterprise Java framework" .
+<http://dbpedia.org/resource/JavaFX> dbo:library_purpose "Rich client application framework" .
+<http://dbpedia.org/resource/Hibernate> dbo:library_purpose "Object-relational mapping framework" .
+<http://dbpedia.org/resource/Log4j> dbo:library_purpose "Logging framework" .
+<http://dbpedia.org/resource/Apache_Struts> dbo:library_purpose "Web application framework" .
+<http://dbpedia.org/resource/JUnit> dbo:library_purpose "Unit testing framework" .
+<http://dbpedia.org/resource/Maven> dbo:library_purpose "Build automation tool" .
+<http://dbpedia.org/resource/Tomcat> dbo:library_purpose "Servlet container" .
+
+
+
+

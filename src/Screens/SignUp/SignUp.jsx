@@ -3,13 +3,15 @@ import UpperDecor from "../../allimages/updecoration.png"
 import LowerDecor from "../../allimages/downdecoration.png"
 import SignUpImage from "../../allimages/SignUpImage.png"
 import { Link } from 'react-router-dom'
+import Fade from "react-reveal/Fade";
 export default function SignUp(){
     return(
         <>
+        <div className="WholescreenSignUp"> 
         <div className="UpDecor">
         <img id ="upperdecoration" src= {UpperDecor} alt="Decor" />
         </div>
-        
+        <Fade left duration={1000} delay={200}>
         <div className="SignUpBackground">
             
             <div className= "SignUpImage">
@@ -50,11 +52,11 @@ export default function SignUp(){
                 </div>
             </div>    
         </div>
-        
+        </Fade>
         <div className="DownDecor">
         <img id ="downdecoration" src={LowerDecor} alt="Decor"/>
         </div>
-     
+        </div>
         </>
     );
 }

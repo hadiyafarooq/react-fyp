@@ -1,7 +1,11 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import './InterviewSetup.css';
 import { Link } from 'react-router-dom'
+import axios from "axios";
+import Fade from "react-reveal/Fade";
 const mimeType = "video/webm";
+
 
 const InterviewSetup = () => {
   const [permission, setPermission] = useState(false);
@@ -10,12 +14,42 @@ const InterviewSetup = () => {
   const [stream, setStream] = useState(null);
   const liveVideoFeed = useRef(null);
   const [recordedVideo, setRecordedVideo] = useState(null);
+  const [showChatbot, setShowChatbot] = useState(false);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const [questions, setQuestions] = useState([
+    "Hello, How are you doing today?",
+  ]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userResponses, setUserResponses] = useState(Array(questions.length).fill(""));
 
-  useEffect(() => {
-    if (liveVideoFeed.current) {
-      liveVideoFeed.current.srcObject = permission ? stream : null;
-    }
-  }, [stream, permission]);
+    const handleResponseChange = (event) => {
+      const updatedResponses = [...userResponses];
+      updatedResponses[currentQuestionIndex] = event.target.value;
+      setUserResponses(updatedResponses);
+    };
+  
+    const handleNextQuestion = () => {
+      console.log(questions.length)
+      if (currentQuestionIndex < questions.length - 50) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);        
+      }
+    };
+
+    useEffect(() => {
+      // Update the live video feed when stream or permission changes
+      if (liveVideoFeed.current) {
+        liveVideoFeed.current.srcObject = permission ? stream : null;
+      }
+    }, [stream, permission]); // Dependencies: stream and permission
+  
+    useEffect(() => {
+      // Log the updated questions state
+      console.log(questions);
+    }, [questions]);
 
   const getCameraAndMicrophonePermission = async () => {
     setRecordedVideo(null);
@@ -41,9 +75,37 @@ const InterviewSetup = () => {
     }
   };
 
-  const startRecording = () => {
-    setRecordingStatus("recording");
+  const startRecording = async (e) => {
     
+    e.preventDefault();
+    try {
+    
+      // Make sure you have the correct endpoint and data format for your backend
+      const response = await axios.post("http://127.0.0.1:5001/Questions", config);
+  
+      if (response && response.data.success) {
+        const newQuestions = response.data.questions;
+      
+        // Create an array of question strings with indices
+        const newQuestionsStrings = newQuestions.map((questionObj, index) => {
+          const questionString = questionObj.question.replace(/["']/g, '');
+          return `${questionString}`; // Adding 1 to index for human-friendly numbering
+        });
+      
+        // Update the state by appending each new question string one by one
+        setQuestions((prevQuestions) => {
+          const updatedQuestions = [...prevQuestions, ...newQuestionsStrings];
+          return updatedQuestions;
+        });
+      
+        setShowChatbot(true);
+        setRecordingStatus("recording");
+      }else {
+        setShowChatbot(false);
+      }
+    } catch (error) {
+      console.error("Error during POST request:", error.message);
+    }
     if (stream) {
       const media = new MediaRecorder(stream, { type: mimeType });
       mediaRecorder.current = media;
@@ -60,16 +122,26 @@ const InterviewSetup = () => {
         const videoBlob = new Blob(localVideoChunks, { type: mimeType });
         const videoUrl = URL.createObjectURL(videoBlob);
         setRecordedVideo(videoUrl);
+       
       };
     }
   };
 
   const stopRecording = () => {
     setRecordingStatus("inactive");
+    setShowChatbot(false);
     if (mediaRecorder.current) {
       mediaRecorder.current.stop();
     }
-    setStream(null);
+    if (stream) {
+      const audioTracks = stream.getAudioTracks();
+      const videoTracks = stream.getVideoTracks();
+
+      audioTracks.forEach((track) => track.stop());
+      videoTracks.forEach((track) => track.stop());
+  
+      setStream(null);
+    }
   };
 
   const downloadVideo = () => {
@@ -85,16 +157,16 @@ const InterviewSetup = () => {
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
     }
-    // setStream(null);
   };
 
   return (
+    <Fade left duration={1000} delay={200}>
     <div className="Wholescreen">  
         <div className="StartInterview">
     <div className="interviewsetupbody">
       <div>
         {!permission ? (
-          <button className="Interviewbutton" onClick={getCameraAndMicrophonePermission}>
+          <button className="InterviewbuttonMic" onClick={getCameraAndMicrophonePermission}>
             Get Microphone and Camera Access
           </button>
         ) : (
@@ -106,28 +178,46 @@ const InterviewSetup = () => {
           </div>
         )}
         <div className="buttons">
-          {permission && recordingStatus === "inactive" ? (
-            <button className="Interviewbutton" onClick={startRecording}>
-              Start Recording
-            </button> 
-          ) : null}
-          {recordingStatus === "recording" ? (
-            <button className="Interviewbutton" onClick={stopRecording}>
-              Stop Recording
-            </button>
-          ) : null}
-          {recordedVideo && (
-            <Link to="/IntervieweeDashboard">
-              <button className="Interviewbutton" onClick={downloadVideo}>
-                Submit Interview
-              </button>
-            </Link>
+  {permission && !recordedVideo && recordingStatus === "inactive" && (
+    <button className="Interviewbuttonstart" onClick={(e) => startRecording(e)}>
+      Start Recording
+    </button>
+  )}
+
+  {recordingStatus === "recording" && (
+    <button className="Interviewbuttonstop" onClick={stopRecording}>
+      Stop Recording
+    </button>
+  )}
+
+  {recordedVideo && (
+    <Link to="/IntervieweeDashboard">
+      <button className="Interviewbuttondownload" onClick={downloadVideo}>
+        Submit Interview
+      </button>
+    </Link>
+  )}
+</div>
+
+    {showChatbot && (
+        <div className="chatbot-container">
+          {currentQuestionIndex < questions.length ? (
+            <div className="question">
+              <p>{questions[currentQuestionIndex]}</p>
+              <button className="Interviewbuttonnext" onClick={handleNextQuestion}>Next</button>
+            </div>
+          ) : (
+            <div className="thank-you">
+              <p>Thank you for your responses!</p>
+            </div>
           )}
         </div>
+      )}
+  </div>
+  </div>
       </div>
-    </div>
-    </div>
-</div>
+      </div>
+      </Fade>
   );
 };
 

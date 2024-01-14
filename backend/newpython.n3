@@ -1,0 +1,47 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix yago: <http://dbpedia.org/class/yago/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dbc: <http://dbpedia.org/resource/Category:> .
+@base <http://dbpedia.org/resource/> .
+
+<http://dbpedia.org/resource/Python> dbo:is_a dbo:High-level_programming_language .
+<http://dbpedia.org/resource/Python> dbo:designed_by <http://dbpedia.org/resource/Guido_van_Rossum> .
+<http://dbpedia.org/resource/Python> dbo:supports dbo:Object-oriented_programming .
+<http://dbpedia.org/resource/Python> dbo:features "Dynamic typing, Cross-platform support, Large standard library" .
+<http://dbpedia.org/resource/Python> dbo:related_framework dbo:Django .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:libraries_used dbo:HTTP_requests .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:use_cases "Web development, Data analysis, Machine learning" .
+<http://dbpedia.org/resource/Python> dbo:first_released "February 20, 1991" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:core_philosophy "Readability and Simplicity" .
+<http://dbpedia.org/resource/Python> dbo:official_website <https://www.python.org> .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:loop_constructs "for, while, do-while" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:used_libraries dbo:NumPy, 
+dbo:Pandas, 
+dbo:Matplotlib,
+dbo:Flask,
+dbo:Django,
+dbo:Requests,
+dbo:BeautifulSoup,
+dbo:SQLAlchemy,
+dbo:Pygame,
+dbo:SciPy.  # Updated label
+<http://dbpedia.org/resource/Python> dbo:key_features "Dynamic typing, Duck typing, Garbage collection, Multiple programming paradigms" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:community_support "Yes" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:latest_version "3.10.0" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:data_types "int, str, float, bool" .  # Updated label
+<http://dbpedia.org/resource/Python> dbo:programming_constructs "Functions, Loops, Classes" .  # Updated label
+<http://dbpedia.org/resource/Django> dbo:framework_purpose "Web framework" .
+<http://dbpedia.org/resource/Flask> dbo:framework_purpose "Web development" .
+<http://dbpedia.org/resource/Requests> dbo:library_purpose "HTTP requests" .
+<http://dbpedia.org/resource/Pygame> dbo:library_purpose "Game development" .
+<http://dbpedia.org/resource/NumPy> dbo:library_purpose "Numerical computing" .
+<http://dbpedia.org/resource/Pandas> dbo:library_purpose "Data manipulation" .
+<http://dbpedia.org/resource/Matplotlib> dbo:library_purpose "Data visualization" .
+<http://dbpedia.org/resource/SciPy> dbo:library_purpose "Scientific computing" .
