@@ -1,0 +1,112 @@
+.WholescreenUpdateProfile{
+    background: linear-gradient(to bottom, #75c1c5, #e19cb5);
+    height:100vh;
+}
+h1{
+font-family: 'Arial';
+}    
+
+#upperdecorationupdateprofile{
+    position: absolute;
+    width: 30%;
+    top: 0;
+    right: 0;
+}
+
+#downdecorationupdateprofile{
+    position: absolute;
+    width: 30%;
+    top: 85%;
+    right: 70%;
+
+}
+
+.UpdateProfileBackground{
+    background-color: #007E85;
+    position: absolute;
+    width: 55%;
+    height:65%;
+    top: 17.5%;
+    right: 22%;
+    border-radius: 15px;
+}
+
+.UpdateProfilebox{
+    background-color: white;
+    position: absolute;
+    width: 45%;
+    height:94%;
+    top: 3%;
+    right: 5%;
+    border-radius: 10px;
+    
+}
+
+.UpdateProfileheading{
+    text-align: center;
+    margin-top: 6%;
+    font-size: 25px;
+    
+}
+
+.usernamedivupdateprofile,.passworddivupdateprofile,.emaildivupdateprofile,.confirmpassworddivupdateprofile{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+#UpdateProfileImage{
+
+    width: 5%;
+    height:5%;
+    top: 0%;
+    right: 22%;
+}
+
+.Inputtextboxupdateprofile{
+    margin-top: 10%;
+    font-size: 15px;
+    font-weight: 450;
+}
+
+.credentials{
+    height: 30px;
+    width: 95%;
+    border: none;
+    background-color: #CBE1DC;
+    border-radius: 5px;
+    padding-left:2%;
+}
+
+.termsandservicesupdateprofile{
+    margin-top:2%;
+    margin-right:5%;
+    margin-left: 5%;
+}
+
+.UpdateProfileButton{
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 35%;
+    height: 30px;
+    border: none;
+    background-color: #007E85;
+    border-radius: 3px;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+}
+
+.CheckifLogin{
+margin-top: 2%;
+text-align: center;
+}
+
+.account{
+    font-size: 10px;
+}
+
+.SignUp{
+    margin-left: 1%;
+    font-weight: bold;
+    font-size: 10px;
+}

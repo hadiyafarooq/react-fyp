@@ -2,12 +2,11 @@ h1,h4{
     font-family: 'Arial';
     }    
     
-    .StartInterview{
+    .StartInterviewReport{
         background-color: white;
         width: 93%;
-        margin-left: 5%;
         height: 92%;
-        border-radius: 40px 0 0 40px;
+        border-radius: 40px 40px 40px 40px;
     }
     .mainheadinguser{
         font-size: 50px;
@@ -36,9 +35,9 @@ h1,h4{
         width:110%;
     }
     
-    .Wholescreen{
-        background-color: #007E85; 
-        height: 100vh;
+    .WholescreenReport{
+      background: linear-gradient(to bottom, #75c1c5, #e19cb5); 
+        height: 150vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,7 +45,7 @@ h1,h4{
     
     .WelcomeGraphic{
         width:100%;
-        height:20%;
+        height:15%;
     }
     
     .contentincenterreport{
@@ -88,7 +87,36 @@ h1,h4{
       margin-top:2%;
       font-size: 30px;
     }
+
+    .NameInterviewee{
+      position: absolute;
+      color: black;
+      margin-left:2%;
+      font-size: 20px;
+      margin-top:5%;
+    }
     
+    .custom-legend text {
+      fill: black; 
+      font-size: 16px; 
+    }
+
+    .InterviewDuration{
+      position: absolute;
+      color: black;
+      margin-left:40%;
+      font-size: 20px;
+      margin-top:5%;
+    }
+
+    .CorectnessScore{
+      position: absolute;
+      color: black;
+      margin-left:2%;
+      font-size: 20px;
+      margin-top:8%;
+    }
+
     .date{
       position: absolute;
       color: white;
@@ -177,3 +205,35 @@ h1,h4{
         margin-bottom: 10px;
       }
     
+      .ReportAnalysis{
+        margin-top: 2%;
+        height :20%;
+      }
+
+      .UpperBorderText{
+        position: absolute;
+        color: #ffff;
+        font-size: 18px;
+        margin-left:2%;
+        margin-top: 0.5%;
+      }
+
+      .LowerBorderText{
+        position: absolute;
+        color: #ffff;
+        margin-left:2%;
+        font-size: 18px;
+        margin-top: 0.5%;
+      }
+
+      .UpperBorder{
+        border: #03113e 2px solid;
+        background-color: #03113e;
+        margin-top: 2%;
+        height :20%;
+      }
+      .LowerBorder{
+        border: #03113e 2px solid;
+        background-color: #03113e;
+        height :4%;
+      }

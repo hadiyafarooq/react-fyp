@@ -7,7 +7,7 @@ import IntervieweeDashboard from './Screens/IntervieweeDashboard/IntervieweeDash
 import RecruiterDashboard from './Screens/RecruiterDashboard/RecruiterDashboard'
 import InterviewSetup from './Screens/InterviewSetup/InterviewSetup'
 import Report from './Screens/Report/Report'
-
+import UpdateProfile from './Screens/UpdateProfile/UpdateProfile'
 function App() {
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
           <Route path='/RecruiterDashboard' element={<RecruiterDashboard />} />
           <Route path='/InterviewSetup' element={<InterviewSetup />} />
           <Route path='/Report' element={<Report />} />
+          <Route path='/UpdateProfile' element={<UpdateProfile />} />
         </Routes>
       </BrowserRouter>
     </>

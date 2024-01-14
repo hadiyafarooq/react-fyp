@@ -1,7 +1,7 @@
-body{
-    background-color: #ffff;
+.WholescreenSignUp{
+    background: linear-gradient(to bottom, #75c1c5, #e19cb5);
+    height:100vh;
 }
-
 h1{
 font-family: 'Arial';
 }    

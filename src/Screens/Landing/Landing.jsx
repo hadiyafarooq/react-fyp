@@ -20,9 +20,9 @@ export default function Landing(){
         <h4 className="subheadinglanding">Sick of time-consuming interviews? Let AI do the heavy lifting!</h4>
         <Link to ="/Login"><button className="getstartedlanding">GET STARTED</button>
         </Link>
-        <img id ="downdecorationlanding" src={LowerDecor} alt="Decor"/>
         </div>
         </Fade>
+        <img id ="downdecorationlanding"src={LowerDecor} alt="LowerDecor" />
         <Fade left duration={1000} delay={200}>   
         <div className="VectorImageLanding">
         <img src={CoverImage} alt="VectorImage" />
