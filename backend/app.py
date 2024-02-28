@@ -3,6 +3,8 @@ from flask_cors import CORS
 import supabase
 from rdflib import Graph
 import random
+import subprocess
+import os
 from rdflib.plugins.parsers.notation3 import BadSyntax
 app = Flask(__name__)
 CORS(app)
@@ -16,7 +18,9 @@ def get_questions_from_ontology_python():
     # Load the ontology
     ontology_file = "newpython.n3"
     g = Graph()
+
     g.parse(ontology_file, format="n3")
+    
 
     # Define a list of question templates
     question_templates_python = [
@@ -251,6 +255,7 @@ def login():
         response_data = json.loads(response_data_str)
         data = response_data.get('data', [])
 
+
         matched_user = next(
         (entry for entry in data if entry['username'] == username and entry['password'] == password), None)
 
@@ -304,6 +309,42 @@ def interviewdata():
         import traceback
         traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
+    
+
+@app.route('/upload', methods=['POST'])
+def upload_video():
+    # Check if the POST request has a file part
+    print("request.files",request.files)
+    if 'video' not in request.files:
+        return jsonify({'error': 'No video file provided'}), 400
+
+    video_file = request.files['video']
+
+    # Check if the file is not empty
+    if video_file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    # Save the uploaded video to the server
+    upload_folder = 'uploads'
+    os.makedirs(upload_folder, exist_ok=True)
+    video_path = os.path.join(upload_folder, video_file.filename)
+    video_file.save(video_path)
+    print("heree")
+
+    # Construct the command to run
+    cmd = f'FeatureExtraction.exe -f "{video_path}"'
+
+    try:
+        # Execute the command
+        result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # Return the result
+        return jsonify({'message': 'Command executed successfully', 'output': result.stdout}), 200
+    except subprocess.CalledProcessError as e:
+        # Handle errors in command execution
+        return jsonify({'error': 'Failed to execute command', 'details': e.stderr}), 500
+
+
+
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)

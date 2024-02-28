@@ -107,7 +107,7 @@ const InterviewSetup = () => {
       console.error("Error during POST request:", error.message);
     }
     if (stream) {
-      const media = new MediaRecorder(stream, { type: mimeType });
+      const media = new MediaRecorder(stream, { type: 'video/webm' });
       mediaRecorder.current = media;
       mediaRecorder.current.start();
       let localVideoChunks = [];
@@ -119,9 +119,9 @@ const InterviewSetup = () => {
       };
 
       mediaRecorder.current.onstop = () => {
-        const videoBlob = new Blob(localVideoChunks, { type: mimeType });
-        const videoUrl = URL.createObjectURL(videoBlob);
-        setRecordedVideo(videoUrl);
+        const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
+        // const videoUrl = URL.createObjectURL(videoBlob);
+        setRecordedVideo(videoBlob);
        
       };
     }
@@ -145,23 +145,56 @@ const InterviewSetup = () => {
     }
   };
 
+  const uploadVideoToServer = (recordedVideo) => {
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('video', recordedVideo, "recorded_video.webm");
+
+    console.log('formdata', formData.get('video'))
+  
+    // Make a POST request to the server
+    fetch('http://localhost:5001/upload', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Video uploaded successfully');
+        // You can handle success here
+      } else {
+        console.error('Failed to upload video');
+        // You can handle errors here
+      }
+    })
+    .catch(error => {
+      console.error('Error uploading video:', error);
+      // You can handle errors here
+    });
+  };
+  
+
+
   const downloadVideo = () => {
-    if (recordedVideo) {
-      const a = document.createElement("a");
-      a.href = recordedVideo;
-      a.download = "recorded_video.webm";
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
+    // if (recordedVideo) {
+    //   const a = document.createElement("a");
+    //   a.href = recordedVideo;
+    //   a.download = "recorded_video.webm";
+    //   a.style.display = "none";
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   document.body.removeChild(a);
+  
+      // Upload the video to the server
+      uploadVideoToServer(recordedVideo);
+    // }
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());  
     }
-
-    // WRITE LOGIC OF CALLING SCRIPT HERE
-    
   };
+
+
+
+
 
 
 
@@ -190,7 +223,7 @@ const InterviewSetup = () => {
     </button>
   )}
 
-  {/* THIS IS STOP RECORDING BUTTON */}
+
 
   {recordingStatus === "recording" && (
     <button className="Interviewbuttonstop" onClick={stopRecording}>
