@@ -141,6 +141,7 @@ const InterviewSetup = () => {
       videoTracks.forEach((track) => track.stop());
   
       setStream(null);
+
     }
   };
 
@@ -155,9 +156,14 @@ const InterviewSetup = () => {
       document.body.removeChild(a);
     }
     if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
+      stream.getTracks().forEach((track) => track.stop());  
     }
+
+    // WRITE LOGIC OF CALLING SCRIPT HERE
+    
   };
+
+
 
   return (
     <Fade left duration={1000} delay={200}>
@@ -184,6 +190,8 @@ const InterviewSetup = () => {
     </button>
   )}
 
+  {/* THIS IS STOP RECORDING BUTTON */}
+
   {recordingStatus === "recording" && (
     <button className="Interviewbuttonstop" onClick={stopRecording}>
       Stop Recording
@@ -197,7 +205,8 @@ const InterviewSetup = () => {
       </button>
     </Link>
   )}
-</div>
+
+  </div>
 
     {showChatbot && (
         <div className="chatbot-container">
