@@ -319,6 +319,7 @@ def upload_video():
         return jsonify({'error': 'No video file provided'}), 400
 
     video_file = request.files['video']
+    print("video_file : ",video_file)
 
     # Check if the file is not empty
     if video_file.filename == '':
@@ -328,15 +329,20 @@ def upload_video():
     upload_folder = 'uploads'
     os.makedirs(upload_folder, exist_ok=True)
     video_path = os.path.join(upload_folder, video_file.filename)
+    print("video_path : ",video_path)
+
     video_file.save(video_path)
-    print("heree")
+    
 
     # Construct the command to run
-    cmd = f'FeatureExtraction.exe -f "{video_path}"'
+    cmd = f'OpenFacee\FeatureExtraction.exe -f "{video_path}"'
+    # print("cmd : ", cmd)
 
     try:
         # Execute the command
+        # result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # print("result of command run : ", result)
         # Return the result
         return jsonify({'message': 'Command executed successfully', 'output': result.stdout}), 200
     except subprocess.CalledProcessError as e:
@@ -344,6 +350,11 @@ def upload_video():
         return jsonify({'error': 'Failed to execute command', 'details': e.stderr}), 500
 
 
+
+# THIS IS THE FUNCTION THAT PERFORMS VIDEO ANALYSIS CLEANING
+
+def video_FE():
+    
 
 
 if __name__ == "__main__":

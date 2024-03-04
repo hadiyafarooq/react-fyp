@@ -121,6 +121,7 @@ const InterviewSetup = () => {
       mediaRecorder.current.onstop = () => {
         const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
         // const videoUrl = URL.createObjectURL(videoBlob);
+        // THIS IS CHANGED FOR THE SERVER.
         setRecordedVideo(videoBlob);
        
       };
@@ -160,15 +161,15 @@ const InterviewSetup = () => {
     .then(response => {
       if (response.ok) {
         console.log('Video uploaded successfully');
-        // You can handle success here
+        
       } else {
         console.error('Failed to upload video');
-        // You can handle errors here
+        
       }
     })
     .catch(error => {
       console.error('Error uploading video:', error);
-      // You can handle errors here
+      
     });
   };
   
