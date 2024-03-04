@@ -1,13 +1,10 @@
 Input:uploads\recorded_video.webm
 Input full path:C:\Users\inspi\OneDrive - FAST National University\FYP\FYP REACT\react-fyp\backend\uploads\recorded_video.webm
 Camera parameters:500,500,320,240
-Output HOG:recorded_video.hog
-Output video:recorded_video.avi
-Output aligned directory:recorded_video_aligned
 Output csv:recorded_video.csv
-Gaze: 1
+Gaze: 0
 AUs: 1
 Landmarks 2D: 1
-Landmarks 3D: 1
-Pose: 1
-Shape parameters: 1
+Landmarks 3D: 0
+Pose: 0
+Shape parameters: 0

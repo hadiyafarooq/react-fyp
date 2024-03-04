@@ -5,6 +5,10 @@ from rdflib import Graph
 import random
 import subprocess
 import os
+import joblib
+import numpy as np
+import VideoFE # THIS IS THE PY FILE FOR VIDEO ANALYSIS FUCNTIONALITY
+
 from rdflib.plugins.parsers.notation3 import BadSyntax
 app = Flask(__name__)
 CORS(app)
@@ -335,26 +339,42 @@ def upload_video():
     
 
     # Construct the command to run
-    cmd = f'OpenFacee\FeatureExtraction.exe -f "{video_path}"'
+    cmd = f'OpenFacee\FeatureExtraction.exe -f "{video_path}" -2Dfp -aus'
     # print("cmd : ", cmd)
 
     try:
         # Execute the command
         # result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        # print("result of command run : ", result)
-        # Return the result
+        video_FE()
         return jsonify({'message': 'Command executed successfully', 'output': result.stdout}), 200
     except subprocess.CalledProcessError as e:
         # Handle errors in command execution
         return jsonify({'error': 'Failed to execute command', 'details': e.stderr}), 500
+    
+
 
 
 
 # THIS IS THE FUNCTION THAT PERFORMS VIDEO ANALYSIS CLEANING
 
 def video_FE():
+    Vmodel = joblib.load('video_analysis.joblib')
+    Input = VideoFE.take_avg(VideoFE.clean_data(VideoFE.load_data()))
+    print("input values for prediction : ", Input)
+
+    #Feature engineering of the file I have uploaded.
+    # input = np.array([[ 0.047550,  0.169749,  0.063835,  0.094563,  0.295091 , 0.374149 , 0.083074]])
+
+    y_pred = Vmodel.predict(Input)
+    output = ["Engaged"	,"EyeContact" ,"Smiled", "Friendly", "NotStressed",	"Focused",	"Authentic", "NotAwkward"]
+    print("Output : ", output)
+    print("Predicted value : ", y_pred)
+
+
     
+
+        
 
 
 if __name__ == "__main__":
