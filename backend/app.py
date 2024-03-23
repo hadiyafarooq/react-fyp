@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, json
 from flask_cors import CORS
 import supabase
+from rdflib import Graph, Namespace
 from rdflib import Graph
 import random
 from rdflib.plugins.parsers.notation3 import BadSyntax
