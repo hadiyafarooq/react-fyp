@@ -4,40 +4,41 @@ import './InterviewSetup.css';
 import { Link } from 'react-router-dom'
 import axios from "axios";
 import Fade from "react-reveal/Fade";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 const mimeType = "video/webm";
 
 
 const InterviewSetup = () => {
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [questions, setQuestions] = useState(["Hello, How are you doing today?"]);
   const [permission, setPermission] = useState(false);
-  const mediaRecorder = useRef(null);
   const [recordingStatus, setRecordingStatus] = useState("inactive");
+  const mediaRecorder = useRef(null);
   const [stream, setStream] = useState(null);
   const liveVideoFeed = useRef(null);
   const [recordedVideo, setRecordedVideo] = useState(null);
   const [showChatbot, setShowChatbot] = useState(false);
+  const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+
+
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
-  const [questions, setQuestions] = useState([
-    "Hello, How are you doing today?",
-  ]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userResponses, setUserResponses] = useState(Array(questions.length).fill(""));
 
-    const handleResponseChange = (event) => {
-      const updatedResponses = [...userResponses];
-      updatedResponses[currentQuestionIndex] = event.target.value;
-      setUserResponses(updatedResponses);
+
+
+
+
+  const handleNextQuestion = () => {
+    uploadTranscriptToServer();
+    setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+
     };
+
   
-    const handleNextQuestion = () => {
-      console.log(questions.length)
-      if (currentQuestionIndex < questions.length - 50) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);        
-      }
-    };
 
     useEffect(() => {
       // Update the live video feed when stream or permission changes
@@ -50,6 +51,10 @@ const InterviewSetup = () => {
       // Log the updated questions state
       console.log(questions);
     }, [questions]);
+
+    if (!browserSupportsSpeechRecognition) {
+      return null
+    }
 
   const getCameraAndMicrophonePermission = async () => {
     setRecordedVideo(null);
@@ -79,7 +84,8 @@ const InterviewSetup = () => {
     
     e.preventDefault();
     try {
-    
+
+      SpeechRecognition.startListening({ continuous: true });
       // Make sure you have the correct endpoint and data format for your backend
       const response = await axios.post("http://127.0.0.1:5001/Questions", config);
   
@@ -107,7 +113,7 @@ const InterviewSetup = () => {
       console.error("Error during POST request:", error.message);
     }
     if (stream) {
-      const media = new MediaRecorder(stream, { type: mimeType });
+      const media = new MediaRecorder(stream, { type: 'video/webm' });
       mediaRecorder.current = media;
       mediaRecorder.current.start();
       let localVideoChunks = [];
@@ -119,15 +125,18 @@ const InterviewSetup = () => {
       };
 
       mediaRecorder.current.onstop = () => {
-        const videoBlob = new Blob(localVideoChunks, { type: mimeType });
-        const videoUrl = URL.createObjectURL(videoBlob);
-        setRecordedVideo(videoUrl);
+        const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
+        // const videoUrl = URL.createObjectURL(videoBlob);
+        // THIS IS CHANGED FOR THE SERVER.
+        setRecordedVideo(videoBlob);
        
       };
     }
   };
 
   const stopRecording = () => {
+    uploadTranscriptToServer();
+    SpeechRecognition.stopListening();
     setRecordingStatus("inactive");
     setShowChatbot(false);
     if (mediaRecorder.current) {
@@ -141,23 +150,78 @@ const InterviewSetup = () => {
       videoTracks.forEach((track) => track.stop());
   
       setStream(null);
+
+    }
+
+  };
+
+  const uploadVideoToServer = (recordedVideo) => {
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('video', recordedVideo, "recorded_video.webm");
+
+    console.log('formdata', formData.get('video'))
+  
+    // Make a POST request to the server
+    fetch('http://localhost:5001/upload', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Video uploaded successfully');
+        
+      } else {
+        console.error('Failed to upload video');
+        
+      }
+    })
+    .catch(error => {
+      console.error('Error uploading video:', error);
+      
+    });
+  };
+
+
+  const uploadTranscriptToServer = async () => {
+    try {
+      const serverUrl = 'http://localhost:5001/uploadaudio';
+      const response = await fetch(serverUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain', // Set Content-Type to indicate plain text
+        },
+        body: transcript
+      });
+    
+      if (response.ok) {
+        // Clear the transcript
+        console.log('Transcript posted successfully:', transcript);
+        resetTranscript();
+      } else {
+        console.error('Failed to post transcript:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error posting transcript:', error.message);
+    }
+  };
+  
+
+  
+
+
+  const SendAudioVideo = () => {
+      uploadTranscriptToServer();
+      uploadVideoToServer(recordedVideo);
+      
+  
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());  
     }
   };
 
-  const downloadVideo = () => {
-    if (recordedVideo) {
-      const a = document.createElement("a");
-      a.href = recordedVideo;
-      a.download = "recorded_video.webm";
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-    if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
-    }
-  };
+
+
 
   return (
     <Fade left duration={1000} delay={200}>
@@ -179,10 +243,12 @@ const InterviewSetup = () => {
         )}
         <div className="buttons">
   {permission && !recordedVideo && recordingStatus === "inactive" && (
-    <button className="Interviewbuttonstart" onClick={(e) => startRecording(e)}>
+    <button className="Interviewbuttonstart" onClick={(e) => {startRecording(e)}}>
       Start Recording
     </button>
   )}
+
+
 
   {recordingStatus === "recording" && (
     <button className="Interviewbuttonstop" onClick={stopRecording}>
@@ -192,12 +258,13 @@ const InterviewSetup = () => {
 
   {recordedVideo && (
     <Link to="/IntervieweeDashboard">
-      <button className="Interviewbuttondownload" onClick={downloadVideo}>
+      <button className="Interviewbuttondownload" onClick={SendAudioVideo}>
         Submit Interview
       </button>
     </Link>
   )}
-</div>
+
+  </div>
 
     {showChatbot && (
         <div className="chatbot-container">

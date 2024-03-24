@@ -4,6 +4,12 @@ import supabase
 from rdflib import Graph, Namespace
 from rdflib import Graph
 import random
+import subprocess
+import os
+import joblib
+import numpy as np
+import VideoFE # THIS IS THE PY FILE FOR VIDEO ANALYSIS FUCNTIONALITY
+
 from rdflib.plugins.parsers.notation3 import BadSyntax
 from difflib import SequenceMatcher
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -129,7 +135,9 @@ def get_questions_from_ontology_python():
     # Load the ontology
     ontology_file = "newpython.n3"
     g = Graph()
+
     g.parse(ontology_file, format="n3")
+    
 
     # Define a list of question templates
     question_templates_python = [
@@ -364,6 +372,7 @@ def login():
         response_data = json.loads(response_data_str)
         data = response_data.get('data', [])
 
+
         matched_user = next(
         (entry for entry in data if entry['username'] == username and entry['password'] == password), None)
 
@@ -434,6 +443,69 @@ def interviewdata():
         import traceback
         traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
+    
+
+@app.route('/upload', methods=['POST'])
+def upload_video():
+    # Check if the POST request has a file part
+    print("request.files",request.files)
+    if 'video' not in request.files:
+        return jsonify({'error': 'No video file provided'}), 400
+
+    video_file = request.files['video']
+    print("video_file : ",video_file)
+
+    # Check if the file is not empty
+    if video_file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    # Save the uploaded video to the server
+    upload_folder = 'uploads'
+    os.makedirs(upload_folder, exist_ok=True)
+    video_path = os.path.join(upload_folder, video_file.filename)
+    print("video_path : ",video_path)
+
+    video_file.save(video_path)
+    
+
+    # Construct the command to run
+    cmd = f'OpenFacee\FeatureExtraction.exe -f "{video_path}" -2Dfp -aus'
+    # print("cmd : ", cmd)
+
+    try:
+        # Execute the command
+        # result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        result = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        video_FE()
+        return jsonify({'message': 'Command executed successfully', 'output': result.stdout}), 200
+    except subprocess.CalledProcessError as e:
+        # Handle errors in command execution
+        return jsonify({'error': 'Failed to execute command', 'details': e.stderr}), 500
+    
+
+
+
+
+# THIS IS THE FUNCTION THAT PERFORMS VIDEO ANALYSIS CLEANING
+
+def video_FE():
+    Vmodel = joblib.load('video_analysis.joblib')
+    Input = VideoFE.take_avg(VideoFE.clean_data(VideoFE.load_data()))
+    print("input values for prediction : ", Input)
+
+    #Feature engineering of the file I have uploaded.
+    # input = np.array([[ 0.047550,  0.169749,  0.063835,  0.094563,  0.295091 , 0.374149 , 0.083074]])
+
+    y_pred = Vmodel.predict(Input)
+    output = ["Engaged"	,"EyeContact" ,"Smiled", "Friendly", "NotStressed",	"Focused",	"Authentic", "NotAwkward"]
+    print("Output : ", output)
+    print("Predicted value : ", y_pred)
+
+
+    
+
+        
+
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
