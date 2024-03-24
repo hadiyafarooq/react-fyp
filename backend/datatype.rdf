@@ -1,0 +1,1750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="http://programminglanguages.org/ontology#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns="http://www.programminglanguages/ontology/"
+   xml:base="http://www.programminglanguages/ontology/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:xml="http://www.w3.org/XML/1998/namespace"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+
+
+ <!-- Programming languages parent nodes -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ProgrammingLanguages">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#C"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Cpp"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharp"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Java"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Python"/>
+  </rdf:Description>
+
+
+<!-- Sub concepts of each language -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#C">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataTypes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructures"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Functions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#OOP"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CMemoryManagement"/>
+  </rdf:Description>
+
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Cpp">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataTypes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructures"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Functions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#OOP"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppMemoryManagement"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharp">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataTypes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructures"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Functions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#OOP"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharpMemoryManagement"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Java">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataTypes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructures"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Functions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#OOP"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JavaMemoryManagement"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Python">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataTypes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructures"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Functions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonOOP"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonMemoryManagement"/>
+  </rdf:Description>
+
+
+
+  <!-- DataType has child TypesofDataTypes -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#DataTypes">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesofDataTypes"/>
+  </rdf:Description>
+
+  <!-- TypesofDataTypes has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofDataTypes">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#complex"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#bytes"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#NoneType"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#NotImplementedType"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#float"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#dict"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#int"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#bool"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#range"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#list"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#frozenset"/>
+  </rdf:Description>
+
+  <!-- Definition of those types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#complex">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>It is a complex number with real and imaginary parts</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#bytes">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>It is a sequence of bytes</ns1:hasDescription>
+  </rdf:Description>
+
+   <rdf:Description rdf:about="http://programminglanguages.org/ontology#NoneType">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>It is an object representing the absence of a value, often called null in other languages</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#NotImplementedType">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>A placeholder that can be returned from overloaded operators to indicate unsupported operand types.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#float">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>Double-precision floating-point number. The precision is machine-dependent but in practice is generally implemented as a 64-bit number with 53 bits of precision.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#dict">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>Associative array (or dictionary) of key and value pairs; can contain mixed types (keys and values), keys must be a hashable type</ns1:hasDescription>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#range">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>An immutable sequence of numbers commonly used for looping a specific number of times in for loops.</ns1:hasDescription>
+  </rdf:Description>
+ 
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#int">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>Integer of unlimited magnitude.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#bool">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>Boolean value</ns1:hasDescription>
+   </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#frozenset">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>Unordered set, contains no duplicates; can contain mixed types, if hashable</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#list">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>List, can contain mixed types</ns1:hasDescription>
+  </rdf:Description>
+
+
+<!-- Data Structures children concepts -->
+
+ <rdf:Description rdf:about="http://programminglanguages.org/ontology#DataStructures">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfDataStructures"/>
+  </rdf:Description>
+
+
+  <!-- TypesOfDataStructures has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfDataStructures">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Linear"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Tree"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Graph"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#HashBased"/>
+  </rdf:Description>
+
+
+
+  <!-- Linear DS has child concepts -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Linear">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Arrays"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Lists"/>
+  </rdf:Description>
+
+ <!-- Array DS has child concepts -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Arrays">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesofArrays"/> 
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An ordered collection of elements stored at contiguous memory locations</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- TypesofArrays has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofArrays">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BitArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Bitmap"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DynamicArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SortedArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ParallelArray"/>
+  </rdf:Description>
+
+  <!-- Definitions of types of array child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BitArray">
+     <ns1:hasMutability>mutable</ns1:hasMutability>
+     <ns1:hasDescription>An array of bits, where each bit represents a binary value of 0 or 1</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#DynamicArray">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An array-like data structure that automatically resizes itself when elements are added or removed</ns1:hasDescription>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#SortedArray">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An array data structure where elements are stored in sorted order</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ParallelArray">
+    <ns1:hasMutability>immutable</ns1:hasMutability>
+    <ns1:hasDescription>An array data structure containing multiple arrays, where corresponding elements from different arrays are related to each other</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Bitmap">
+      <ns1:hasMutability>immutable</ns1:hasMutability>
+      <ns1:hasDescription>An array data structure where each element represents a single bit in a bitmap</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+
+
+
+ <!-- List DS has child concepts -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Lists">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesofLists"/> 
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+        <ns1:hasDescription>A linear data structure where elements are linked using pointers or references</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- TypesofLists has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofLists">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SinglyLinkedList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DoublyLinkedList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ArrayList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AssociationList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SkipList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#XorLinkedList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#EdgeList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#FreeList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Zipper"/>
+  </rdf:Description>
+
+
+
+<!-- TypesofLists child types descriptions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#SinglyLinkedList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A linear data structure where each element contains a reference to the next element in the sequence</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#DoublyLinkedList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A linear data structure where each element contains references to both the next and previous elements in the sequence</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ArrayList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A resizable-array implementation of the List interface</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#AssociationList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A list of key-value pairs, where each key uniquely identifies a value</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#SkipList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A data structure that allows for fast search, insert, and delete operations</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#XorLinkedList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A linked list where each node has a reference to both the next and previous nodes using bitwise XOR operations</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#EdgeList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A data structure used in computer graphics to represent the connectivity information of edges in a mesh</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#FreeList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A list used in memory management systems to track free memory blocks available for allocation</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Zipper">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A data structure used for traversing and modifying hierarchical data structures, such as trees, in a functional programming context</ns1:hasDescription>
+  </rdf:Description>
+
+
+ <!-- Tree has child concepts -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Tree">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesofTrees"/> 
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A hierarchical data structure composed of nodes connected by edges, where each node has zero or more children nodes</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- TypesofTrees has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofTrees">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinaryTrees"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Heaps"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BitSliceTrees"/>
+  </rdf:Description>
+
+
+
+  <!-- TypesofTrees has child Binary Tree that has types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinaryTrees">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfBinaryTrees"/>
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A tree data structure in which each node has at most two children, referred to as the left child and the right child</ns1:hasDescription>
+  </rdf:Description>
+  
+
+
+
+  <!-- Binary Tree types definitions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfBinaryTrees">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AATrees"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AVLtrees"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinaryTrees"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinarySearchTrees"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CartesianTrees"/>
+  </rdf:Description>
+
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#AATrees">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An ordered binary tree data structure that balances itself using skew and split operations</ns1:hasDescription>
+  </rdf:Description>
+  
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#AVLTrees">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>Self-balancing binary search tree where the heights of the two child subtrees of any node differ by at most one</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinaryTrees">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A hierarchical data structure in which each node has at most two children, referred to as the left child and the right child</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinarySearchTrees">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A binary tree data structure where the left child of each node contains a value less than the node, and the right child contains a value greater than the node</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CartesianTrees">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A binary tree derived from a sequence of numbers, where the root is the minimum value and the children are Cartesian trees of the two subarrays split by the minimum value</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- TypesofTrees has child Heaps that has types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Heaps">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfHeaps"/>
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A specialized tree-based data structure that satisfies the heap property, such as min-heap or max-heap</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+  <!-- Heaps types definitions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfHeaps">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#MinMaxHeap"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinaryHeap"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#WeakHeap"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinomialHeap"/>
+  </rdf:Description>
+
+  <!-- Min-Max Heap -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#MinMaxHeap">
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>A specialized binary heap data structure where each node has a key greater than or equal to (respectively, less than or equal to) the keys of its children</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- Binary Heap -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinaryHeap">
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>A binary tree-based data structure that satisfies the heap property: the key stored in each node is either greater than or equal to (or less than or equal to) the keys in the node's children</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- Weak Heap -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#WeakHeap">
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>A type of heap data structure where each node has a key less than or equal to the keys of its children</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- Binomial Heap -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinomialHeap">
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>A type of heap similar to a binary heap but uses a special data structure called a binomial tree to organize its elements</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- TypesofTrees has child Bit slice Tree that has types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BitSliceTrees">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfBitSliceTrees"/>
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A tree data structure where each node represents a bit slice of a binary number. The tree structure allows efficient bitwise operations on large binary numbers by organizing them into slices.</ns1:hasDescription>
+  </rdf:Description>
+  
+
+  <!-- bitslice types definitions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfBitSliceTrees">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#RadixTree"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SuffixTree"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SuffixArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CompressedSuffixArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JudyArray"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Trie"/>
+  </rdf:Description>
+
+
+
+  <!-- bitslice types further types definitions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#RadixTree">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A compact tree data structure used for storing a set of keys with associated values, typically used for efficient storage and retrieval of strings or integers.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#SuffixTree">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A tree data structure that represents all the suffixes of a given text string. It is commonly used in string algorithms for pattern matching and indexing.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#SuffixArray">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An array data structure that stores all the suffixes of a given text string in sorted order. It is an alternative to the suffix tree with similar applications in string algorithms.</ns1:hasDescription>
+  </rdf:Description>
+
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CompressedSuffixArray">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A compressed version of the suffix array, which reduces the memory footprint by storing only the information necessary for the suffix array construction and operation.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#JudyArray">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A specialized tree-based data structure optimized for high-performance lookups, insertions, and deletions of key-value pairs. It is commonly used in applications requiring efficient associative arrays.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Trie">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A tree data structure used for efficiently storing and retrieving a dynamic set of strings. It allows prefix-based searches and is commonly used in dictionary implementations and autocomplete functionalities.</ns1:hasDescription>
+  </rdf:Description>
+
+
+  <!-- Hash Based DS has child concepts -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#HashBased">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfHashBasedStructures"/>
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A family of data structures that utilize hash functions to efficiently store and retrieve data. These structures typically involve mapping keys to values using a hash function, which computes an index or address into an array or bucket where the data is stored. Hash-based structures offer fast insertion, deletion, and lookup operations, often achieving constant-time complexity on average.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- TypesOfHashBasedStructures types definitions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfHashBasedStructures">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BloomFilter"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#BinaryFuseFilter"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#HashTable"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DistributedHashTable"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#HashList"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#HashTrie"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#HashTree"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PrefixHashTree"/>
+  </rdf:Description>
+
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BloomFilter">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A space-efficient probabilistic data structure used to test whether an element is a member of a set. Bloom filters use multiple hash functions to map elements to a bit array, allowing quick membership queries. However, false positives are possible, meaning it can indicate that an element is in the set when it is not, but false negatives are not possible.</ns1:hasDescription>
+  </rdf:Description> 
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#BinaryFuseFilter">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>An approximate data structure designed for set-membership testing with improved space efficiency compared to traditional Bloom filters. Binary fuse filters use a combination of bitwise operations to perform set-membership tests. They offer a balance between space usage and false positive rates.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#HashTable">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A data structure that implements an associative array, mapping keys to values. Hash tables use a hash function to compute an index into an array of buckets or slots, where the corresponding value is stored. They offer fast average-case time complexity for insertion, deletion, and lookup operations.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#DistributedHashTable">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A decentralized distributed system that provides a lookup service similar to a hash table. DHTs partition the key space across multiple nodes in a network, enabling distributed storage and retrieval of data. They are used in peer-to-peer networks and decentralized storage systems.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#HashList">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A data structure that combines the features of a hash table and a linked list. Hash lists use a hash function to determine the index of elements in an array, and each index contains a linked list of elements with the same hash value. They offer efficient insertion, deletion, and lookup operations.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#HashTrie">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A trie data structure where each node is associated with a hash value computed from its children nodes' hashes. Hash tries are used for efficient storage and retrieval of key-value pairs, especially in scenarios where keys are strings or sequences. They offer fast lookup and insertion operations.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#HashTree">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A tree data structure in which each node is associated with a hash value computed from its children nodes' hashes. Hash trees are used for data integrity verification and efficient storage and retrieval of large datasets. They are commonly employed in cryptographic applications and peer-to-peer networks.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#PrefixHashTree">
+    <ns1:hasMutability>mutable</ns1:hasMutability>
+    <ns1:hasDescription>A variant of the hash tree data structure where each node represents a prefix of a hash value. Prefix hash trees are utilized in scenarios where partial hash values or prefixes are sufficient for key retrieval or data integrity verification. They are commonly used in cryptographic applications and distributed systems.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+  <!-- ControlFlow has child  Primitives and Types-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ControlFlow">
+    <ns1:hasDescription>Control flow is the order in which individual statements, instructions or function calls of an imperative program are executed or evaluated.</ns1:hasDescription>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ControlFlowPrimitives"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfControlFlow"/>
+  </rdf:Description>
+
+
+
+  <!-- ControlFlowPrimitives has child  Primitives and description-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ControlFlowPrimitives">
+    <ns1:hasDescription>Control flow primitives represent the basic elements used to define the flow of execution within a program. These primitives often include instructions, statements, or constructs that determine the sequence of operations or the branching and looping behavior of the program.</ns1:hasDescription>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfControlFlowPrimitives"/>
+  </rdf:Description>
+
+
+
+  <!-- Type of ControlFlowPrimitives-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfControlFlowPrimitives">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Labels"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Goto"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Subroutines"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Sequence"/>    
+  </rdf:Description>
+
+
+  <!--Labels-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Labels">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>immutable</ns1:hasMutability>
+      <ns1:hasDescription>Control flow labels are immutable identifiers used to mark specific points in a program's execution flow. Once defined, a label's position within the code remains fixed and cannot be altered during runtime. Labels facilitate the implementation of control flow constructs such as loops and conditional statements by providing targets for program branching and control transfer.</ns1:hasDescription>
+      <ns1:BestPractice>Use descriptive and meaningful labels that reflect the purpose and context of the control flow points. Avoid using generic or ambiguous labels that may lead to confusion or errors during program maintenance and debugging.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!--Goto-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Goto">
+      <ns1:hasScope>Global</ns1:hasScope>
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>The goto statement is used to unconditionally transfer control to a specified label within the program. It allows programmers to implement non-structured control flow by directly jumping to different sections of code. However, the use of goto is generally discouraged due to its potential to create spaghetti code and make programs difficult to understand and maintain.</ns1:hasDescription>
+      <ns1:BestPractice>Avoid using goto statements whenever possible. Instead, prefer structured control flow constructs like loops, conditionals, and function calls, which enhance code readability, maintainability, and debugging.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!--Subroutines-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Subroutines">
+      <ns1:hasScope>Global</ns1:hasScope>
+      <ns1:hasMutability>mutable</ns1:hasMutability>
+      <ns1:hasDescription>Subroutines, also known as procedures or functions, are modular units of code that perform specific tasks within a program. They enable code reuse, encapsulation, and abstraction, allowing developers to break down complex tasks into smaller, manageable components. Subroutines are invoked by calling their names, and they can return control and values back to the calling code upon completion.</ns1:hasDescription>
+      <ns1:BestPractice>Use meaningful and descriptive names for subroutines to convey their purpose and functionality. Follow consistent naming conventions and design principles to ensure clarity and maintainability across the codebase. Break down complex algorithms into smaller, reusable subroutines to improve code organization and readability.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!--Sequence-->  
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Sequence">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>immutable</ns1:hasMutability>
+      <ns1:hasDescription>A sequence is a linear arrangement of statements or instructions that are executed sequentially, one after the other, in the order they appear in the program. It represents the simplest form of control flow, where each statement is executed exactly once, and control proceeds to the next statement in the sequence until the end of the sequence is reached.</ns1:hasDescription>
+      <ns1:BestPractice>Organize code into clear and logical sequences to improve readability and maintainability. Use comments and whitespace effectively to delineate individual statements and enhance code clarity. Minimize the length and complexity of sequences by breaking down tasks into smaller, reusable components and employing structured control flow constructs where appropriate.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- Type of ControlFlow-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfControlFlow">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ChoiceControlFlow"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#LoopsControlFlow"/>
+  </rdf:Description>
+
+
+  <!-- Type of Choice ControlFlow-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ChoiceControlFlow">
+      <ns1:hasDescription>The choice control flow structure allows a program to make decisions based on conditions or boolean expressions. It enables branching in the program's execution path, directing the flow of control to different branches depending on the evaluation of specified conditions.</ns1:hasDescription>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#IfThenElse"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Switch"/>     
+  </rdf:Description>
+
+
+  <!-- If-Then-Else Statements -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#IfThenElse">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Immutable</ns1:hasMutability>
+      <ns1:hasDescription>An If-Then-Else statement is a conditional control flow structure that allows a program to execute different branches of code based on the evaluation of a condition.</ns1:hasDescription>
+      <ns1:BestPractice>Use If-Then-Else statements judiciously to improve code readability and maintainability. Ensure that conditions are clear and easily understandable to avoid logical errors.</ns1:BestPractice>
+  </rdf:Description>
+
+  <!-- Switch Statements -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Switch">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Immutable</ns1:hasMutability>
+      <ns1:hasDescription>A Switch statement is a control flow structure that allows a program to select one of many code blocks to execute based on the value of an expression.</ns1:hasDescription>
+      <ns1:BestPractice>Use Switch statements for scenarios where multiple conditions need to be evaluated against the same variable. Ensure that each case in the Switch statement is distinct and covers all possible values.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- Type of Loops ControlFlow-->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#LoopsControlFlow">
+      <ns1:hasDescription>Loops are control flow structures that allow a program to repeatedly execute a block of code as long as a specified condition is true or until a certain number of iterations are reached.</ns1:hasDescription>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CountControlled"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ConditionControlled"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CollectionControlled"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#GeneralIteration"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#InfiniteLoops"/>     
+  </rdf:Description>
+
+
+  <!-- CountControlledLoops -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CountControlled">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>A count-controlled loop iterates a specific number of times based on a predefined count or range of values.</ns1:hasDescription>
+      <ns1:BestPractice>Ensure that the loop count or range is properly initialized and updated to prevent unexpected behavior or errors.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- ConditionControlledLoops -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ConditionControlled">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>A condition-controlled loop iterates as long as a specified condition evaluates to true.</ns1:hasDescription>
+      <ns1:BestPractice>Ensure that the loop condition is well-defined and properly updated within the loop to avoid infinite loops or unexpected behavior.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- CollectionControlledLoops -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CollectionControlledLoops">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>A collection-controlled loop iterates over elements of a collection (e.g., arrays, lists, sets) until all elements have been processed.</ns1:hasDescription>
+      <ns1:BestPractice>Choose the appropriate collection type and iteration method based on the specific requirements and data structure being processed. Ensure proper handling of empty collections to prevent runtime errors.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- GeneralIterationLoops -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#GeneralIterationLoops">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>A general iteration loop iterates over a range of values or conditions until a termination condition is met.</ns1:hasDescription>
+      <ns1:BestPractice>Ensure that the termination condition is properly defined to prevent infinite loops. Use clear and meaningful loop variable names for readability.</ns1:BestPractice>
+  </rdf:Description>
+
+
+  <!-- InfiniteLoops -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#InfiniteLoops">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>An infinite loop is a loop that continues indefinitely without terminating under normal conditions.</ns1:hasDescription>
+      <ns1:BestPractice>Avoid creating infinite loops, as they can lead to program crashes or unresponsive behavior. Always include an exit condition or termination mechanism in loop structures.</ns1:BestPractice>
+  </rdf:Description>
+
+
+
+
+
+
+
+  <!-- Functions has child TypesofFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Functions">
+    <ns1:hasDescription>Functions represent encapsulated blocks of code that perform specific tasks or operations within a program. They help modularize code, promote code reusability, and improve maintainability.</ns1:hasDescription>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesofFunctions"/>
+  </rdf:Description>
+
+  <!-- TypesofFunctions has child types -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ArithmeticFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#LogicalFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#StringFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ConversionFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ExceptionHandlingFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataStructureFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#UserDefinedFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ApplicationSpecificFunctions"/>
+  </rdf:Description>
+
+
+
+  <!-- Definition of ArithmeticFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ArithmeticFunctions">
+    <ns1:hasScope>Global and Local</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:hasDescription>Arithmetic functions perform mathematical operations such as addition, subtraction, multiplication, and division on numeric data types.</ns1:hasDescription>
+    <ns1:BestPractice>Use descriptive function names and handle edge cases and potential errors.</ns1:BestPractice>    
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfArithmeticFunctions"/>
+  </rdf:Description>
+
+
+  <!-- Types of ArithmeticFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfArithmeticFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Addition"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Subtraction"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Multiplication"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Division"/>
+  </rdf:Description>
+
+
+  <!-- Definition of ArithmeticFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Addition">
+      <ns1:hasDescription>The addition function performs the arithmetic operation of adding two or more numbers together to produce their sum.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Subtraction">
+      <ns1:hasDescription>The subtraction function performs the arithmetic operation of subtracting one number (the subtrahend) from another (the minuend) to produce the difference.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Multiplication">
+      <ns1:hasDescription>The multiplication function performs the arithmetic operation of multiplying two or more numbers together to produce their product.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Division">
+      <ns1:hasDescription>The division function performs the arithmetic operation of dividing one number (the dividend) by another (the divisor) to produce the quotient.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+  <!-- Definition of LogicalFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#LogicalFunctions">
+      <ns1:hasScope>Global and Local</ns1:hasScope>
+      <ns1:hasMutability>Immutable</ns1:hasMutability>
+      <ns1:hasDescription>Logical functions perform boolean operations such as AND, OR, and NOT on boolean values or expressions.</ns1:hasDescription>
+      <ns1:BestPractice>Ensure logical functions are clear, concise, and handle all possible input scenarios.</ns1:BestPractice>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfLogicalFunctions"/>
+  </rdf:Description>
+
+
+  <!-- Types of LogicalFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfLogicalFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AND"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#OR"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#NOT"/>
+  </rdf:Description>
+
+
+
+  <!-- Definition of LogicalFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#AND">
+    <ns1:hasDescription>The AND operation returns true if and only if both operands are true; otherwise, it returns false.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#OR">
+      <ns1:hasDescription>The OR operation returns true if at least one of the operands is true; otherwise, it returns false.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#NOT">
+      <ns1:hasDescription>The NOT operation returns the opposite of the operand's value. If the operand is true, NOT returns false; if the operand is false, NOT returns true.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+  <!-- Definition of StringFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#StringFunctions">
+      <ns1:hasScope>Global and Local</ns1:hasScope>
+      <ns1:hasMutability>Immutable</ns1:hasMutability>
+      <ns1:hasDescription>String functions manipulate and operate on string data, including operations such as concatenation, substring extraction, and searching.</ns1:hasDescription>
+      <ns1:BestPractice>Handle string functions efficiently, especially when dealing with large strings or performance-critical code.</ns1:BestPractice>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfStringFunctions"/> 
+  </rdf:Description>
+
+
+  <!-- Types of StringFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfStringFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Concatenation"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Substring"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Compare"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Copy"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Search"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Length"/>
+  </rdf:Description>
+
+
+
+  <!-- Definition of Types of StringFunctions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Concatenation">
+      <ns1:hasDescription>Concatenation combines two or more strings into a single string.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Substring">
+      <ns1:hasDescription>A substring is a portion of a string, extracted based on a specified starting and ending index.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Compare">
+      <ns1:hasDescription>Comparison operation compares two strings to determine whether they are equal or which one is lexicographically greater.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Copy">
+      <ns1:hasDescription>Copying creates a duplicate of a string or a portion of a string.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Search">
+      <ns1:hasDescription>Search operation looks for a specified substring within a string and returns the index of its first occurrence.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Length">
+      <ns1:hasDescription>Length operation returns the number of characters in a string.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+
+
+
+  <!-- Definition of ConversionFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ConversionFunctions">
+    <ns1:hasScope>Global and Local</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:hasDescription>Conversion functions convert data from one data type to another, such as integer to string, string to integer, etc.</ns1:hasDescription>
+    <ns1:BestPractice>Ensure proper error handling and data validation during conversion operations.</ns1:BestPractice>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfConversionFunctions"/> 
+  </rdf:Description>
+
+
+  <!-- Types of ConversionFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfConversionFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#IntegerToString"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#StringToInteger"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#FloatToInteger"/>
+  </rdf:Description>
+
+
+
+
+  <!-- Definition of Types of ConversionFunctions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#IntegerToString">
+      <ns1:hasDescription>IntegerToString function converts an integer value to its string representation.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#StringToInteger">
+      <ns1:hasDescription>StringToInteger function converts a string representing a numeric value to its integer equivalent.</ns1:hasDescription>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#FloatToInteger">
+      <ns1:hasDescription>FloatToInteger function converts a floating-point number to an integer by discarding the fractional part.</ns1:hasDescription>
+  </rdf:Description>
+
+
+  <!-- Definition of ExceptionHandlingFunctions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ExceptionHandlingFunctions">
+      <ns1:hasScope>Global and Local</ns1:hasScope>
+      <ns1:hasMutability>Immutable</ns1:hasMutability>
+      <ns1:hasDescription>Exception handling functions manage and handle runtime exceptions or errors that occur during program execution.</ns1:hasDescription>
+      <ns1:BestPractice>Follow best practices for exception handling, including logging, graceful recovery, and appropriate error messaging.</ns1:BestPractice>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfExceptionHandlingFunctions"/>  
+  </rdf:Description>
+
+
+
+  <!-- Types of ConversionFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfExceptionHandlingFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CatchAndHandle"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Throw"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#LogAndReport"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Cleanup"/>
+  </rdf:Description>
+
+  <!-- CatchAndHandle -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#CatchAndHandle">
+      <ns1:hasDescription>The Catch and Handle function is responsible for intercepting and managing exceptions that occur during program execution. It employs try-catch or try-except blocks to capture specific types of exceptions and execute appropriate error-handling logic. CatchAndHandle functions are essential for gracefully managing exceptional situations and preventing application crashes or unexpected behavior.</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- Throw -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Throw">
+      <ns1:hasDescription>The Throw function is designed to deliberately raise exceptions within a software application. It signals abnormal conditions, errors, or exceptional circumstances that require special attention or handling. Throw functions facilitate the propagation of exceptions to higher-level error-handling mechanisms, enabling developers to identify and address issues that may disrupt the normal flow of program execution.</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- LogAndReport -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#LogAndReport">
+      <ns1:hasDescription>The Log and Report function is responsible for logging and reporting exceptions that occur during program execution. It captures details about the type of exception, the context in which it occurred, and any relevant diagnostic information. LogAndReport functions help developers and system administrators identify, analyze, and address issues that impact the reliability and stability of software applications.</ns1:hasDescription>
+  </rdf:Description>
+
+  <!-- Cleanup -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#Cleanup">
+      <ns1:hasDescription>The Cleanup function is tasked with managing the cleanup of resources and performing necessary housekeeping tasks in response to exceptions. It ensures that resources, such as file handles, database connections, or allocated memory, are properly released and deallocated to prevent resource leaks and system instability. Cleanup functions help maintain the integrity and robustness of software systems in the face of unexpected errors or failures.</ns1:hasDescription>
+  </rdf:Description>
+
+
+
+  <!-- Definition of UserDefinedFunctions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#UserDefinedFunctions">
+      <ns1:hasScope>Global and Local</ns1:hasScope>
+      <ns1:hasMutability>Depends on implementation</ns1:hasMutability>
+      <ns1:hasDescription>User-defined functions are custom functions created by the programmer to perform specific tasks or operations within a program.</ns1:hasDescription>
+      <ns1:BestPractice>Use meaningful names, adhere to coding standards, and ensure reusability and maintainability.</ns1:BestPractice>
+  </rdf:Description>
+
+
+
+  <!-- Definition of ApplicationSpecificFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ApplicationSpecificFunctions">
+    <ns1:hasScope>Global, Local</ns1:hasScope>
+    <ns1:hasMutability>Depends on implementation</ns1:hasMutability>
+    <ns1:hasDescription>Application-specific functions are tailored to meet the requirements and functionalities of a particular software application or system.</ns1:hasDescription>
+    <ns1:BestPractice>Design application-specific functions to align closely with the business logic and requirements of the application.</ns1:BestPractice>  
+  </rdf:Description>
+
+
+
+  <!-- Definition of DataStructureFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#DataStructureFunctions">
+      <ns1:hasDescription>Data Structure functions represent a set of operations and algorithms used to manipulate and interact with various data structures, such as arrays, linked lists, trees, graphs, and more.</ns1:hasDescription>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfDataStructureFunctions"/>  
+  </rdf:Description>
+
+
+
+  <!-- Types of DataStructureFunctions -->
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfDataStructureFunctions">
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ListFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ArrayFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DictionaryFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SetFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TreeFunctions"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#GraphFunctions"/>
+  </rdf:Description>
+
+
+
+  <!-- Definitions of Types of DataStructureFunctions -->
+
+  <rdf:Description rdf:about="http://programminglanguages.org/ontology#ListFunctions">
+      <ns1:hasScope>Local</ns1:hasScope>
+      <ns1:hasMutability>Mutable</ns1:hasMutability>
+      <ns1:hasDescription>List Functions provide a set of operations and algorithms for manipulating lists, such as insertion, deletion, searching, sorting, and more.</ns1:hasDescription>
+      <ns1:BestPractice>Use appropriate data structures and algorithms for efficient list manipulation, and consider the trade-offs between time and space complexity.</ns1:BestPractice>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfListFunctions"/>
+  </rdf:Description>
+
+
+
+    <!-- Types of ListFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfListFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Insertion"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Deletion"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Searching"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Sorting"/>
+    </rdf:Description>
+
+    <!-- Definitions of Types of ListFunctions -->
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Insertion">
+        <ns1:hasDescription>Insertion refers to the process of adding new elements or nodes into a data structure, such as a list, array, dictionary, set, tree, or graph.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Deletion">
+        <ns1:hasDescription>Deletion involves removing existing elements or nodes from a data structure, such as a list, array, dictionary, set, tree, or graph.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Searching">
+        <ns1:hasDescription>Searching is the process of locating specific elements or nodes within a data structure, such as a list, array, dictionary, set, tree, or graph.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Sorting">
+        <ns1:hasDescription>Sorting involves arranging the elements or nodes of a data structure in a specific order, such as ascending or descending, based on defined criteria.</ns1:hasDescription>
+    </rdf:Description>
+
+
+    <!-- Defintion of ArrayFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ArrayFunctions">
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:hasDescription>Array Functions include operations and algorithms for working with arrays, such as element access, modification, resizing, sorting, and searching.</ns1:hasDescription>
+        <ns1:BestPractice>Optimize array access patterns and consider using dynamic arrays or other resizable array implementations to handle varying data sizes efficiently.</ns1:BestPractice>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfArrayFunctions"/>
+    </rdf:Description>
+
+
+
+    <!-- Types of ArrayFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfArrayFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Access"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Update"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Resize"/>
+    </rdf:Description>
+
+    <!-- Definitions of Types of ArrayFunctions -->
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Access">
+        <ns1:hasDescription>Access refers to the ability to retrieve or fetch elements or nodes from a data structure, such as a list, array, dictionary, set, tree, or graph.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Update">
+        <ns1:hasDescription>Update involves modifying or changing existing elements or nodes within a data structure, such as a list, array, dictionary, set, tree, or graph.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Resize">
+        <ns1:hasDescription>Resize involves adjusting the size or capacity of a data structure dynamically, typically to accommodate changes in the number of elements or nodes it contains.</ns1:hasDescription>
+    </rdf:Description>
+
+
+
+
+     <!--Definition of DictionaryFunctions-->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#DictionaryFunctions">
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:hasDescription>Dictionary Functions provide operations and algorithms for key-value pair mappings, such as insertion, deletion, retrieval, and iteration.</ns1:hasDescription>
+        <ns1:BestPractice>Choose appropriate hash functions and collision resolution strategies to ensure efficient dictionary operations and minimize collisions.</ns1:BestPractice>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfDictionaryFunctions"/>    
+    </rdf:Description>
+
+
+    <!-- Types of DictionaryFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfDictionaryFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Insertion"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Deletion"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Lookup"/>
+    </rdf:Description>
+
+    <!-- Definitions of Types of DictionaryFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Lookup">
+        <ns1:hasDescription>Lookup involves searching for a specific element or node within a data structure, such as a list, array, dictionary, set, tree, or graph, and returning its value or reference if found.</ns1:hasDescription>
+    </rdf:Description>
+
+
+
+
+
+    <!-- Definitions of SetFunctions -->
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#SetFunctions">
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:hasDescription>Set Functions encompass operations and algorithms for working with sets, including set membership testing, union, intersection, difference, and subset operations.</ns1:hasDescription>
+        <ns1:BestPractice>Consider the use of efficient data structures like hash sets or balanced trees for set manipulation, depending on the specific requirements of the application.</ns1:BestPractice>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfSetFunctions"/>    
+    </rdf:Description>
+
+
+    <!-- Types of SetFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfSetFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Union"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Intersection"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Difference"/>
+    </rdf:Description>
+
+    <!-- Definitions of Types of SetFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Union">
+        <ns1:hasDescription>The Union function combines two or more data structures, such as sets, lists, or arrays, into a single data structure containing all unique elements from the input structures.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Intersection">
+        <ns1:hasDescription>The Intersection function returns the common elements present in two or more data structures, such as sets, lists, or arrays, by comparing their contents and retaining only the elements that exist in all input structures.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Difference">
+        <ns1:hasDescription>The Difference function computes the elements that are present in one data structure but not in another. It typically involves subtracting the elements of one set, list, or array from another and returning the resulting elements.</ns1:hasDescription>
+    </rdf:Description>
+
+
+
+
+    <!-- Definitions of TreeFunctions -->
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TreeFunctions">
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:hasDescription>Tree Functions provide operations and algorithms for manipulating tree structures, such as traversal, insertion, deletion, searching, balancing, and more.</ns1:hasDescription>
+        <ns1:BestPractice>Choose appropriate tree representations and algorithms based on the expected usage patterns and the characteristics of the data to optimize performance and memory usage.</ns1:BestPractice>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfTreeFunctions"/>    
+    </rdf:Description>
+
+
+    <!-- Types of TreeFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfTreeFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Traversal"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Insertion"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Deletion"/>
+    </rdf:Description>
+
+    <!-- Definitions of Types of TreeFunctions -->
+        
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Traversal">
+        <ns1:hasDescription>The Traversal operation involves visiting each element or node in a data structure, such as a tree, graph, or list, in a systematic manner. Traversal algorithms enable the exploration and processing of data structures by following predefined rules for accessing and navigating elements.</ns1:hasDescription>
+    </rdf:Description>
+
+
+
+    <!-- Definitions of GraphFunctions -->
+
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#GraphFunctions">
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:hasDescription>Graph Functions include operations and algorithms for working with graph data structures, such as traversal, pathfinding, cycle detection, connectivity analysis, and more.</ns1:hasDescription>
+        <ns1:BestPractice>Choose appropriate graph representations and traversal algorithms based on the specific requirements of the application, considering factors like graph density, size, and expected query patterns.</ns1:BestPractice>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfGraphFunctions"/>    
+    </rdf:Description>
+
+
+    <!-- Types of GraphFunctions -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfGraphFunctions">
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Traversal"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ShortestPath"/>
+      <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Connectivity"/>
+    </rdf:Description>
+
+
+    <!-- Definitions of TypesOfGraphFunctions -->
+        
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ShortestPath">
+        <ns1:hasDescription>The Shortest Path operation finds the shortest path between two nodes in a graph or network. It is a fundamental algorithm used in various applications such as routing, navigation, and network optimization.</ns1:hasDescription>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Connectivity">
+        <ns1:hasDescription>The Connectivity operation determines whether all nodes in a graph or network are connected to each other. It is used to assess the robustness and accessibility of a network and is essential in various fields, including telecommunications, transportation, and social networks analysis.</ns1:hasDescription>
+    </rdf:Description>
+
+        
+
+
+    <!-- Abstraction -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Abstraction">
+        <ns1:hasDescription>Abstraction is the process of hiding complex implementation details and exposing only essential features or functionalities.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfAbstraction"/>   
+    </rdf:Description>
+
+
+    
+    <!-- Types of Abstraction -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfAbstraction">
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DataAbstraction"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#FunctionalAbstraction"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ProceduralAbstraction"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AbstractDataTypes"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AbstractClasses"/>
+    </rdf:Description>
+
+
+    <!-- Data Abstraction -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#DataAbstraction">
+        <ns1:hasDescription>Data abstraction focuses on representing essential characteristics of data while hiding implementation details. It allows for the creation of complex data structures with clear interfaces and operations.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Encapsulation</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Functional Abstraction -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#FunctionalAbstraction">
+        <ns1:hasDescription>Functional abstraction involves defining functions or procedures to perform specific tasks while hiding internal details. It emphasizes the computation and transformation of data through pure functions.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Modularity</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Procedural Abstraction -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ProceduralAbstraction">
+        <ns1:hasDescription>Procedural abstraction involves organizing code into procedures or functions to perform specific tasks. It abstracts away the implementation details of algorithms, promoting code reuse and maintainability.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Modularization</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Abstract Data Types -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#AbstractDataTypes">
+        <ns1:hasDescription>Abstract data types define a set of data and operations on that data while hiding the underlying implementation. They provide a high-level interface for working with data, allowing for flexibility and abstraction.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Depends on Implementation</ns1:hasMutability>
+        <ns1:BestPractice>Encapsulation</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Abstract Classes -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#AbstractClasses">
+        <ns1:hasDescription>Abstract classes are classes that cannot be instantiated and may contain abstract methods or properties. They serve as blueprints for other classes to inherit and implement specific functionality.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Inheritance</ns1:BestPractice>
+    </rdf:Description>
+
+
+    <!--  OOP -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#OOP">
+        <ns1:hasDescription>Object-Oriented Programming (OOP) involves organizing code into classes and objects to represent real-world entities, along with various concepts such as inheritance, encapsulation, polymorphism, and abstraction.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ClassesAndObjects"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Inheritance"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Encapsulation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Polymorphism"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    </rdf:Description>
+
+
+    <!-- Classes and Objects -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ClassesAndObjects">
+        <ns1:hasDescription>Classes and objects are fundamental concepts in OOP. Classes are blueprints for objects, defining their structure and behavior. Objects are instances of classes.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ClassDeclaration"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ObjectCreation"/>
+    </rdf:Description>
+
+
+    <!-- Class Declaration -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ClassDeclaration">
+        <ns1:hasDescription>Class declaration involves defining the structure and behavior of a class, including member variables and member functions.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Follow naming conventions and encapsulate related functionality within a class.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Object Creation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ObjectCreation">
+        <ns1:hasDescription>Object creation refers to the instantiation of objects from classes, allowing data to be stored and manipulated using the defined class structure.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use meaningful names for objects and adhere to memory management practices.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+    <!-- Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Inheritance">
+        <ns1:hasDescription>Inheritance allows a class to inherit properties and behavior from another class, facilitating code reuse and promoting a hierarchical structure.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfInheritance"/>
+    </rdf:Description>
+
+
+    <!--Types of Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfInheritance">
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#SingleInheritance"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#MultipleInheritance"/>
+    </rdf:Description>
+
+    <!-- Single Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#SingleInheritance">
+        <ns1:hasDescription>Single inheritance involves a derived class inheriting properties and behavior from a single base class, enabling the reuse of code and promoting code organization.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Follow the "is-a" relationship principle when using inheritance.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Multiple Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#MultipleInheritance">
+        <ns1:hasDescription>Multiple inheritance allows a derived class to inherit properties and behavior from multiple base classes, providing flexibility in code design but requiring careful consideration to avoid ambiguity.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use multiple inheritance judiciously to avoid ambiguity and maintain code clarity.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- Encapsulation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Encapsulation">
+        <ns1:hasDescription>Encapsulation is the bundling of data members and methods that operate on the data into a single unit or class. It allows for the hiding of data within a class and only exposes necessary functionalities through member functions.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AccessControl"/>
+    </rdf:Description>
+
+    <!-- Child of Encapsulation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#AccessControl">
+        <ns1:hasDescription>Access Control governs the visibility and accessibility of class members from within and outside the class.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PublicMembers"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PrivateMembers"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ProtectedMembers"/>
+    </rdf:Description>
+
+    <!-- PublicMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PublicMembers">
+        <ns1:hasDescription>Public Members are accessible from outside the class and can be accessed and modified freely.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use public members to expose essential functionality while encapsulating implementation details.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- PrivateMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PrivateMembers">
+        <ns1:hasDescription>Private Members are accessible only within the class and are not visible to external code.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use private members to hide sensitive data and prevent unauthorized access.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- ProtectedMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ProtectedMembers">
+        <ns1:hasDescription>Protected Members are accessible within the class and its subclasses but not outside.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use protected members to provide controlled access to derived classes.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- Polymorphism -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#Polymorphism">
+        <ns1:hasDescription>Polymorphism is the ability of objects of different classes to be treated as objects of a common superclass. It enables a single interface to represent different underlying forms or types.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#MethodOverriding"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#MethodOverloading"/>
+    </rdf:Description>
+
+
+    <!-- MethodOverriding -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#MethodOverriding">
+        <ns1:hasDescription>: Method Overriding allows a subclass to provide a specific implementation of a method that is already provided by its superclass.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Ensure that the overridden method in the derived class adheres to the same contract (method signature) as the base class method.</ns1:BestPractice>
+    </rdf:Description>
+
+
+    <!-- MethodOverloading -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#MethodOverloading">
+        <ns1:hasDescription>Method Overloading enables defining multiple methods in the same class with the same name but different parameters.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Ensure that overloaded methods perform related tasks or operations to maintain consistency and intuitive behavior.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- Python OOP -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonOOP">
+        <ns1:hasDescription>Object-Oriented Programming (OOP) involves organizing code into classes and objects to represent real-world entities, along with various concepts such as inheritance, encapsulation, polymorphism, and abstraction.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonClassesAndObjects"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonInheritance"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonEncapsulation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonPolymorphism"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#Abstraction"/>
+    </rdf:Description>
+
+
+    <!-- Classes and Objects -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonClassesAndObjects">
+        <ns1:hasDescription>Classes and objects are fundamental concepts in OOP. Classes are blueprints for objects, defining their structure and behavior. Objects are instances of classes.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ClassDefinition"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ObjectInstantiation"/>
+    </rdf:Description>
+
+
+
+
+    <!--  ClassDefinition -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ClassDefinition">
+        <ns1:hasDescription>Class definition in Python involves the creation of a blueprint for objects. It defines the attributes and methods that characterize objects instantiated from the class.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Follow naming conventions and use descriptive class names to enhance code readability and maintainability.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- ObjectInstantiation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ObjectInstantiation">
+        <ns1:hasDescription>Object instantiation refers to the creation of instances (objects) of a class. It involves invoking the class constructor to initialize object attributes.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice> Ensure proper initialization of object attributes during instantiation to maintain object integrity.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+    <!-- PythonInheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonInheritance">
+        <ns1:hasDescription>Inheritance allows a class to inherit properties and behavior from another class, facilitating code reuse and promoting a hierarchical structure.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfPythonInheritance"/>
+    </rdf:Description>
+
+
+    <!--Types of Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfPythonInheritance">
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonSingleInheritance"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonMultipleInheritance"/>
+    </rdf:Description>
+
+    <!-- Single Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonSingleInheritance">
+        <ns1:hasDescription>Single inheritance in Python allows a class to inherit attributes and methods from a single parent class.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use single inheritance when classes exhibit a clear hierarchical relationship, ensuring logical and intuitive code organization.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Multiple Inheritance -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonMultipleInheritance">
+        <ns1:hasDescription>Multiple inheritance in Python enables a class to inherit attributes and methods from multiple parent classes. It provides flexibility but requires careful design to avoid the diamond problem.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice> Exercise caution when using multiple inheritance to prevent ambiguity and maintain code clarity. Prefer composition over multiple inheritance when possible.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- Encapsulation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonEncapsulation">
+        <ns1:hasDescription>Encapsulation is the bundling of data members and methods that operate on the data into a single unit or class. It allows for the hiding of data within a class and only exposes necessary functionalities through member functions.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonAccessControl"/>
+    </rdf:Description>
+
+    <!-- Child of Encapsulation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonAccessControl">
+        <ns1:hasDescription>Access Control governs the visibility and accessibility of class members from within and outside the class.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PublicAttributes"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PrivateAttributes"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#ProtectedAttributes"/>
+    </rdf:Description>
+
+    <!-- PublicMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PublicAttributes">
+        <ns1:hasDescription>Public attributes in Python are accessible from outside the class. They can be accessed and modified directly by external code.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use public attributes to expose essential functionality while encapsulating implementation details.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- PrivateMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PrivateAttributes">
+        <ns1:hasDescription> Private attributes in Python are accessible only within the class that defines them. They are not visible to external code.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use private attributes to hide sensitive data and prevent unauthorized access.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- ProtectedMembers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#ProtectedAttributes">
+        <ns1:hasDescription>Protected attributes in Python are accessible within the class and its subclasses but not outside. They are intended for use by derived classes.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use protected attributes to provide controlled access to derived classes.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+
+    <!-- Polymorphism -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonPolymorphism">
+        <ns1:hasDescription>Polymorphism is the ability of objects of different classes to be treated as objects of a common superclass. It enables a single interface to represent different underlying forms or types.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonMethodOverriding"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#DuckTyping"/>
+    </rdf:Description>
+
+
+    <!-- MethodOverriding -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonMethodOverriding">
+        <ns1:hasDescription>Method overriding in Python allows a subclass to provide a specific implementation of a method that is already defined in its superclass. It enables customization and specialization of behavior.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Ensure that the overridden method in the derived class adheres to the same contract (method signature) as the base class method.Document the intent and purpose of method overriding to facilitate code understanding and maintenance.</ns1:BestPractice>
+    </rdf:Description>
+
+
+    <!-- DuckTyping -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#DuckTyping">
+        <ns1:hasDescription>Duck typing in Python is a dynamic typing technique where the type or class of an object is determined by its behavior rather than its explicit type.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Embrace duck typing to write flexible and concise code that focuses on object behavior rather than type hierarchies.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+    <!-- C Memory Management -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CMemoryManagement">
+        <ns1:hasDescription>C memory management involves the allocation and deallocation of memory resources, including static and dynamic memory allocation, handling memory leaks, and ensuring memory alignment.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CMemoryAllocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CMemoryDeallocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CMemoryLeaks"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CMemoryAlignment"/>
+    </rdf:Description>
+
+    <!-- Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CMemoryAllocation">
+        <ns1:hasDescription>Memory allocation in C involves reserving space in memory for program variables and data structures. It includes both static and dynamic memory allocation methods.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfCMemoryAllocation"/>
+    </rdf:Description>
+
+
+    <!-- Types of Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfCMemoryAllocation">
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CStaticMemoryAllocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CDynamicMemoryAllocation"/>
+    </rdf:Description>
+
+
+    <!-- Static Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CStaticMemoryAllocation">
+        <ns1:hasDescription>Static memory allocation in C involves allocating memory for variables during compile-time. Memory size is determined before runtime and remains fixed throughout program execution.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Be cautious of memory limitations and potential stack overflow issues when allocating large memory blocks statically.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Dynamic Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CDynamicMemoryAllocation">
+        <ns1:hasDescription>Dynamic memory allocation in C involves allocating memory during runtime using functions like malloc(), calloc(), and realloc(). It allows for flexible memory management but requires manual deallocation to avoid memory leaks.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Always check for NULL pointers after dynamic memory allocation and free memory resources appropriately to prevent memory leaks.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- Memory Deallocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CMemoryDeallocation">
+        <ns1:hasDescription>Memory deallocation in C involves releasing memory resources that are no longer needed, typically performed using the free() function for dynamically allocated memory. Failure to deallocate memory properly can lead to memory leaks and inefficient memory usage.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Always free dynamically allocated memory after use to avoid memory leaks and improve program efficiency.</ns1:BestPractice>
+    </rdf:Description>
+
+
+    <!-- Memory Leaks -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CMemoryLeaks">
+        <ns1:hasDescription>Memory leaks occur when memory that is no longer needed is not deallocated, leading to inefficient memory usage and potential program crashes. They can be avoided by ensuring proper memory deallocation after use.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Use memory leak detection tools and techniques to identify and fix memory leaks during program development and testing.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Memory Alignment -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CMemoryAlignment">
+        <ns1:hasDescription>Memory alignment in C ensures that data objects are placed at memory addresses that are multiples of their size, which improves memory access efficiency and system performance. It is particularly important for optimizing memory usage in embedded systems and high-performance computing.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Understand the memory alignment requirements of your target platform and optimize data structures accordingly to maximize memory utilization and performance.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+
+    <!-- C++ Memory Management -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppMemoryManagement">
+        <ns1:hasDescription>C++ memory management involves handling memory allocation, deallocation, and resource management to ensure efficient use of memory resources and prevent memory leaks.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppMemoryAllocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppMemoryDeallocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppMemoryLeakDetection"/>
+    </rdf:Description>
+
+    <!-- Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppMemoryAllocation">
+        <ns1:hasDescription>Memory allocation in C++ involves reserving space in memory for variables and objects. It includes stack allocation and heap allocation mechanisms.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#TypesOfCppMemoryAllocation"/>
+    </rdf:Description>
+
+
+    <!-- Types of Memory Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesOfCppMemoryAllocation">
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppStackAllocation"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CppHeapAllocation"/>
+    </rdf:Description>
+
+
+    <!-- Stack Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppStackAllocation">
+        <ns1:hasDescription>Stack allocation in C++ involves allocating memory for variables and objects from the stack memory, which is automatically managed by the compiler. It is fast and efficient but limited in size.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Avoid excessive stack allocation to prevent stack overflow errors, especially for large objects and recursive function calls.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Heap Allocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppHeapAllocation">
+        <ns1:hasDescription>Heap allocation in C++ involves dynamically allocating memory for objects from the heap using the new operator. It provides flexibility in memory management but requires manual deallocation to prevent memory leaks.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Always match each new operator with a corresponding delete operator to avoid memory leaks and improve program reliability.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Memory Deallocation -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppMemoryDeallocation">
+        <ns1:hasDescription>Memory deallocation in C++ involves releasing memory resources that are no longer needed, typically performed using the delete operator for dynamically allocated memory. Failure to deallocate memory properly can lead to memory leaks and inefficient memory usage.</ns1:hasDescription>
+        <ns1:hasScope>Local</ns1:hasScope>
+        <ns1:hasMutability>Mutable</ns1:hasMutability>
+        <ns1:BestPractice>Always free dynamically allocated memory after use to avoid memory leaks and improve program efficiency.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Memory Leak Detection -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CppMemoryLeakDetection">
+        <ns1:hasDescription>Memory leak detection in C++ involves identifying and fixing memory leaks, which occur when memory that is no longer needed is not deallocated. Various tools and techniques are available for detecting and resolving memory leaks during program development and testing.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use memory leak detection tools and techniques to identify and fix memory leaks during program development and testing.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+    <!-- C# Memory Management -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharpMemoryManagement">
+        <ns1:hasDescription>C# memory management involves automatic garbage collection, which manages the allocation and deallocation of memory resources, ensuring efficient memory usage and preventing memory leaks.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharpGarbageCollection"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharpIDisposableInterface"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharpFinalizers"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CSharpWeakReferences"/>
+    </rdf:Description>
+
+    <!-- Garbage Collection -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharpGarbageCollection">
+        <ns1:hasDescription>Garbage collection in C# is an automatic memory management process that identifies and removes unused objects from memory, reclaiming memory resources and preventing memory leaks.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Trust the garbage collector to manage memory efficiently, but understand its behavior and tune application performance if necessary.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- IDisposable Interface -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharpIDisposableInterface">
+        <ns1:hasDescription>The IDisposable interface in C# provides a mechanism for releasing unmanaged resources and performing cleanup operations. It defines a Dispose method that should be implemented to release resources explicitly.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Implement the IDisposable interface for classes that manage unmanaged resources and call the Dispose method to release resources explicitly.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Finalizers -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharpFinalizers">
+        <ns1:hasDescription>Finalizers in C# are special methods that are called by the garbage collector before an object is reclaimed. They are used to release unmanaged resources and perform cleanup operations, but their usage should be minimized due to performance implications.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Avoid relying on finalizers for resource cleanup and prefer using IDisposable interface and deterministic resource management.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Weak References -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#CSharpWeakReferences">
+        <ns1:hasDescription>Weak references in C# allow objects to be referenced without preventing them from being garbage collected. They are useful for implementing caches and other scenarios where you want to hold a reference to an object without preventing its cleanup by the garbage collector.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use weak references for scenarios where you need to maintain references to objects without preventing their garbage collection, but be aware of potential pitfalls such as object resurrection.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+
+
+    <!-- Java Memory Management -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#JavaMemoryManagement">
+        <ns1:hasDescription>Java memory management involves automatic garbage collection, which manages memory allocation and deallocation, ensuring efficient memory usage and preventing memory leaks.</ns1:hasDescription>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JavaGarbageCollection"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JavaHeap"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JavaOutOfMemoryError"/>
+        <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#JavaSoftReferences"/>
+    </rdf:Description>
+
+    <!-- Garbage Collection -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#JavaGarbageCollection">
+        <ns1:hasDescription>Garbage collection in Java is an automatic memory management process that identifies and removes unreachable objects from memory, reclaiming memory resources and preventing memory leaks. Java garbage collectors include mark and sweep and generational garbage collection algorithms.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Understand the behavior of different garbage collection algorithms and tune garbage collector settings according to application requirements.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Java Heap -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#JavaHeap">
+        <ns1:hasDescription>The Java heap is the runtime data area where Java objects are allocated. It is divided into young generation, old generation, and permanent generation (in older Java versions). Java heap size can be configured using JVM options.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Monitor Java heap usage and adjust heap size parameters to prevent OutOfMemoryError and optimize application performance.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- OutOfMemoryError -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#JavaOutOfMemoryError">
+        <ns1:hasDescription>OutOfMemoryError is a runtime exception in Java that indicates the Java Virtual Machine (JVM) has run out of memory. It typically occurs when the Java heap is full and unable to allocate memory for new objects or when the garbage collector fails to free enough memory.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Handle OutOfMemoryError gracefully by analyzing memory usage patterns, optimizing code, and increasing Java heap size if necessary.</ns1:BestPractice>
+    </rdf:Description>
+
+    <!-- Soft References -->
+    <rdf:Description rdf:about="http://programminglanguages.org/ontology#JavaSoftReferences">
+        <ns1:hasDescription>Soft references in Java allow objects to be garbage collected only when memory is low. They are useful for implementing caches and other scenarios where you want to hold a reference to an object as long as memory is available, but allow it to be garbage collected when memory is needed.</ns1:hasDescription>
+        <ns1:hasScope>Global</ns1:hasScope>
+        <ns1:hasMutability>Immutable</ns1:hasMutability>
+        <ns1:BestPractice>Use soft references for scenarios where you need to maintain references to objects as long as memory permits, but be aware of potential memory retention issues.</ns1:BestPractice>
+    </rdf:Description>
+
+
+
+
+
+<!-- Python Memory Management -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonMemoryManagement">
+    <ns1:hasDescription>Python memory management involves automatic memory management techniques, including reference counting and garbage collection, to manage memory resources efficiently and prevent memory leaks.</ns1:hasDescription>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#AutomaticMemoryManagement"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonReferenceCounting"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#PythonGarbageCollection"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#CircularReferences"/>
+    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#MemoryProfiling"/>
+</rdf:Description>
+
+<!-- Automatic Memory Management -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#AutomaticMemoryManagement">
+    <ns1:hasDescription>Automatic memory management in Python refers to the process of automatically allocating and deallocating memory resources without manual intervention from the programmer. It includes techniques such as reference counting and garbage collection.</ns1:hasDescription>
+    <ns1:hasScope>Global</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:BestPractice>Trust Python's automatic memory management mechanisms but be aware of potential memory leaks due to circular references.</ns1:BestPractice>
+</rdf:Description>
+
+<!-- Reference Counting -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonReferenceCounting">
+    <ns1:hasDescription>Reference counting in Python is a memory management technique that keeps track of the number of references to an object. When the reference count drops to zero, the memory occupied by the object is reclaimed automatically.</ns1:hasDescription>
+    <ns1:hasScope>Global</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:BestPractice>Avoid creating circular references to prevent memory leaks and ensure efficient memory usage.</ns1:BestPractice>
+</rdf:Description>
+
+<!-- Garbage Collection (CPython) -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#PythonGarbageCollection">
+    <ns1:hasDescription>Garbage collection in CPython is a process of automatically identifying and reclaiming memory occupied by objects that are no longer in use. It helps prevent memory leaks and ensures efficient memory management.</ns1:hasDescription>
+    <ns1:hasScope>Global</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:BestPractice>Understand the behavior of Python's garbage collector and optimize memory usage by minimizing the creation of unnecessary objects.</ns1:BestPractice>
+</rdf:Description>
+
+<!-- Circular References -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#CircularReferences">
+    <ns1:hasDescription>Circular references in Python occur when two or more objects reference each other in a cycle, preventing the reference count from dropping to zero and causing memory leaks. Python's garbage collector can detect and break circular references to reclaim memory.</ns1:hasDescription>
+    <ns1:hasScope>Global</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:BestPractice>Avoid creating circular references by using weak references or redesigning data structures to prevent memory leaks and optimize memory usage.</ns1:BestPractice>
+</rdf:Description>
+
+<!-- Memory Profiling -->
+<rdf:Description rdf:about="http://programminglanguages.org/ontology#MemoryProfiling">
+    <ns1:hasDescription>Memory profiling in Python involves analyzing memory usage patterns and identifying memory-intensive areas in the code. It helps optimize memory usage, detect memory leaks, and improve overall application performance.</ns1:hasDescription>
+    <ns1:hasScope>Global</ns1:hasScope>
+    <ns1:hasMutability>Immutable</ns1:hasMutability>
+    <ns1:BestPractice>Regularly profile memory usage in Python applications to identify and address memory-related issues, such as memory leaks and excessive memory consumption.</ns1:BestPractice>
+</rdf:Description>
+
+
+</rdf:RDF>

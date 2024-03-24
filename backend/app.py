@@ -5,6 +5,12 @@ from rdflib import Graph, Namespace
 from rdflib import Graph
 import random
 from rdflib.plugins.parsers.notation3 import BadSyntax
+from difflib import SequenceMatcher
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+
 app = Flask(__name__)
 CORS(app)
 
@@ -12,6 +18,112 @@ CORS(app)
 supabase_url = "https://ihfogxstivbgpxjxrxex.supabase.co"
 supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloZm9neHN0aXZiZ3B4anhyeGV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIzMzMwNzUsImV4cCI6MjAxNzkwOTA3NX0.7kgGD988sh__a9UHNAFL3UIpsBaPpsbXF9tvtbvUepU"
 supabase_client = supabase.Client(supabase_url, supabase_key)
+ns1 = Namespace("http://programminglanguages.org/ontology#")
+g = Graph()
+g.parse("datatype.rdf", format="xml")
+
+user_language = "C"
+start_node = ns1[user_language]
+def get_child_nodes(language_node):
+    children = []
+    for child_node in g.objects(language_node, ns1.hasChild):
+        children.append(child_node)
+    return children
+
+def get_sibling_nodes(current_node):
+    parent_node = get_parent_node(current_node)
+    if parent_node:
+        sibling_nodes = [child for child in g.objects(parent_node, ns1.hasChild) if child != current_node]
+        return sibling_nodes
+    else:
+        return []
+
+def get_parent_node(node):
+    for s, p, o in g.triples((None, ns1.hasChild, node)):
+        return s
+    return None
+
+def get_mutability_and_description(node):
+    mutability = list(g.objects(node, ns1.hasMutability))
+    description = list(g.objects(node, ns1.hasDescription))
+    return mutability, description
+
+def calculate_similarity(str1, str2):
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform([str1, str2])
+    cosine_sim = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1])[0][0]
+    return cosine_sim
+
+visited_nodes = set()
+overall_similarity_scores = []
+
+def generate_questions(language_node):
+    questions = []
+    mutability, description = get_mutability_and_description(language_node)
+    if mutability and description:
+        description_question = {"question": f"Can you describe {language_node}?"}
+        questions.extend([description_question])
+    return questions
+
+
+def ask_question(question):
+    print(question['question'])
+    return input("Your answer: ")
+
+
+
+def traverse(language_node):
+    print("Current node:", language_node)
+    child_nodes = get_child_nodes(language_node)
+
+    if not child_nodes:
+        mutability, description = get_mutability_and_description(language_node)
+
+        if not mutability or not description:
+            print("No information found for mutability or description.")
+        else:
+            questions = generate_questions(language_node)
+            for question in questions:
+                answer = ask_question(question)
+                
+                description_similarity = calculate_similarity(answer, description[0])
+
+
+                print(f"Description similarity: {description_similarity}")
+
+                if description_similarity < 0.6:
+                    print("Similarity index is less than 0.6. Asking questions from different nodes.")
+                else:
+                    print("Similarity index is greater than or equal to 0.6. Backtracking to programming language node.")
+
+                    traverse(start_node)
+                    overall_similarity_score = ( description_similarity) / 2
+                    overall_similarity_scores.append(overall_similarity_score)
+
+                    return True
+    else:
+        print("Child nodes:")
+        for idx, child_node in enumerate(child_nodes, 1):
+            print(f"{idx}. {child_node}")
+
+        all_child_nodes_visited = True
+        for child_node in child_nodes:
+            if child_node not in visited_nodes:
+                visited_nodes.add(child_node)
+                all_child_nodes_visited = False
+                if traverse(child_node):
+                    return True
+
+        if all_child_nodes_visited:
+            print("All child nodes of the programming language node have been visited.")
+            return True
+
+
+
+
+
+
+
 
 def get_questions_from_ontology_python():
     # Load the ontology
@@ -270,21 +382,38 @@ def login():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+# @app.route('/Questions', methods=['POST'])
+# def get_questions():
+#     try:
+#         questions_python = get_questions_from_ontology_python()
+#         questions_c = get_questions_from_ontology_C()
+#         questions_java = get_questions_from_ontology_Java()
+#         questions_python.extend(questions_c)
+#         questions_python.extend(questions_java)
+#         print(questions_python)
+#         return jsonify({'success': True, 'questions': questions_python}), 200
+
+#     except Exception as e:
+#         import traceback
+#         traceback.print_exc()
+#         return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/Questions', methods=['POST'])
 def get_questions():
     try:
-        questions_python = get_questions_from_ontology_python()
-        questions_c = get_questions_from_ontology_C()
-        questions_java = get_questions_from_ontology_Java()
-        questions_python.extend(questions_c)
-        questions_python.extend(questions_java)
-        print(questions_python)
-        return jsonify({'success': True, 'questions': questions_python}), 200
+        
+        user_language = "C"
+        start_node = ns1[user_language]
+
+        traverse(start_node)
+        questions = generate_questions(start_node)
+
+        return jsonify({'success': True, 'questions': questions}), 200
+
 
     except Exception as e:
-        import traceback
-        traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
+
 
 @app.route('/InterviewData', methods=['GET'])
 def interviewdata():
