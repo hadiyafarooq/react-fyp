@@ -54,11 +54,32 @@ def get_mutability_and_description(node):
     description = list(g.objects(node, ns1.hasDescription))
     return mutability, description
 
+
 def calculate_similarity(str1, str2):
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform([str1, str2])
-    cosine_sim = cosine_similarity(tfidf_matrix[0], tfidf_matrix[1])[0][0]
-    return cosine_sim
+    # Extract keywords from both strings
+    keywords1 = extract_keywords(str1)
+    keywords2 = extract_keywords(str2)
+
+    # Calculate the number of common keywords
+    common_keywords = set(keywords1) & set(keywords2)
+    num_common_keywords = len(common_keywords)
+
+    # Calculate similarity based on the presence of common keywords
+    similarity = num_common_keywords / max(len(keywords1), len(keywords2))
+
+    return similarity
+
+def extract_keywords(text):
+    #TF-IDF for keyword extraction
+    vectorizer = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = vectorizer.fit_transform([text])
+    feature_names = vectorizer.get_feature_names_out()
+
+    # Sort feature names by TF-IDF score
+    sorted_indices = tfidf_matrix.toarray().argsort()[:, ::-1]
+    keywords = [feature_names[idx] for idx in sorted_indices[0][:5]]  # Extract top 5 keywords
+
+    return keywords
 
 visited_nodes = set()
 overall_similarity_scores = []
@@ -67,10 +88,9 @@ def generate_questions(language_node):
     questions = []
     mutability, description = get_mutability_and_description(language_node)
     if mutability and description:
-        description_question = {"question": f"Can you describe {language_node}?"}
+        description_question = {"question": f"Can you describe {language_node.split('#')[-1]}?"}
         questions.extend([description_question])
     return questions
-
 
 def ask_question(question):
     print(question['question'])
@@ -78,8 +98,9 @@ def ask_question(question):
 
 
 
+
+
 def traverse(language_node):
-    print("Current node:", language_node)
     child_nodes = get_child_nodes(language_node)
 
     if not child_nodes:
@@ -108,10 +129,6 @@ def traverse(language_node):
 
                     return True
     else:
-        print("Child nodes:")
-        for idx, child_node in enumerate(child_nodes, 1):
-            print(f"{idx}. {child_node}")
-
         all_child_nodes_visited = True
         for child_node in child_nodes:
             if child_node not in visited_nodes:
@@ -123,8 +140,6 @@ def traverse(language_node):
         if all_child_nodes_visited:
             print("All child nodes of the programming language node have been visited.")
             return True
-
-
 
 
 
