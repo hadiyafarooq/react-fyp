@@ -30,6 +30,8 @@ g.parse("datatype.rdf", format="xml")
 
 user_language = "C"
 start_node = ns1[user_language]
+wrong_answer = 0
+
 def get_child_nodes(language_node):
     children = []
     for child_node in g.objects(language_node, ns1.hasChild):
@@ -99,35 +101,36 @@ def ask_question(question):
 
 
 
-
 def traverse(language_node):
     child_nodes = get_child_nodes(language_node)
 
     if not child_nodes:
         mutability, description = get_mutability_and_description(language_node)
 
-        if not mutability or not description:
-            print("No information found for mutability or description.")
-        else:
+        if mutability or description:
             questions = generate_questions(language_node)
             for question in questions:
                 answer = ask_question(question)
-                
                 description_similarity = calculate_similarity(answer, description[0])
-
-
                 print(f"Description similarity: {description_similarity}")
 
                 if description_similarity < 0.6:
                     print("Similarity index is less than 0.6. Asking questions from different nodes.")
+                    wrong_answer += 1
+                    
+                    if wrong_answer >= 3:
+                        print("Consecutive wrong answers limit reached. Moving to the next branch.")
+                        traverse(start_node)
+                        overall_similarity_score = (description_similarity) / 2
+                        overall_similarity_scores.append(overall_similarity_score)
+                        return True
                 else:
                     print("Similarity index is greater than or equal to 0.6. Backtracking to programming language node.")
-
                     traverse(start_node)
-                    overall_similarity_score = ( description_similarity) / 2
+                    overall_similarity_score = description_similarity / 2
                     overall_similarity_scores.append(overall_similarity_score)
-
                     return True
+
     else:
         all_child_nodes_visited = True
         for child_node in child_nodes:
@@ -140,8 +143,6 @@ def traverse(language_node):
         if all_child_nodes_visited:
             print("All child nodes of the programming language node have been visited.")
             return True
-
-
 
 
 
