@@ -18,6 +18,7 @@ const InterviewSetup = () => {
   const [stream, setStream] = useState(null);
   const liveVideoFeed = useRef(null);
   const [recordedVideo, setRecordedVideo] = useState(null);
+  const [recordedAudio, setRecordedAudio] = useState(null);
   const [showChatbot, setShowChatbot] = useState(false);
   const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
@@ -112,27 +113,69 @@ const InterviewSetup = () => {
     } catch (error) {
       console.error("Error during POST request:", error.message);
     }
-    if (stream) {
-      const media = new MediaRecorder(stream, { type: 'video/webm' });
-      mediaRecorder.current = media;
-      mediaRecorder.current.start();
-      let localVideoChunks = [];
+    // if (stream) {
+    //   const media = new MediaRecorder(stream, { type: 'video/webm' });
+    //   mediaRecorder.current = media;
+    //   mediaRecorder.current.start();
+    //   let localVideoChunks = [];
 
-      mediaRecorder.current.ondataavailable = (event) => {
-        if (typeof event.data === "undefined") return;
-        if (event.data.size === 0) return;
-        localVideoChunks.push(event.data);
-      };
+    //   mediaRecorder.current.ondataavailable = (event) => {
+    //     if (typeof event.data === "undefined") return;
+    //     if (event.data.size === 0) return;
+    //     localVideoChunks.push(event.data);
+    //   };
 
-      mediaRecorder.current.onstop = () => {
-        const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
-        // const videoUrl = URL.createObjectURL(videoBlob);
-        // THIS IS CHANGED FOR THE SERVER.
-        setRecordedVideo(videoBlob);
+    //   mediaRecorder.current.onstop = () => {
+    //     const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
+        
+    //     // const videoUrl = URL.createObjectURL(videoBlob);
+    //     // THIS IS CHANGED FOR THE SERVER.
+    //     setRecordedVideo(videoBlob);
        
+    //   };
+    // }
+
+
+    if (stream) {
+      const videoMedia = new MediaRecorder(stream, { type: 'video/webm' });
+      const audioMedia = new MediaRecorder(stream, { type: 'audio/wav' }); // Adjust type as needed
+  
+      mediaRecorder.current = { video: videoMedia, audio: audioMedia };
+  
+      let localVideoChunks = [];
+      let localAudioChunks = [];
+  
+      mediaRecorder.current.video.ondataavailable = (event) => {
+          if (typeof event.data === "undefined") return;
+          if (event.data.size === 0) return;
+          localVideoChunks.push(event.data);
       };
-    }
+  
+      mediaRecorder.current.audio.ondataavailable = (event) => {
+          if (typeof event.data === "undefined") return;
+          if (event.data.size === 0) return;
+          localAudioChunks.push(event.data);
+      };
+  
+      mediaRecorder.current.video.onstop = () => {
+          const videoBlob = new Blob(localVideoChunks, { type: 'video/webm' });
+          setRecordedVideo(videoBlob);
+      };
+  
+      mediaRecorder.current.audio.onstop = () => {
+          const audioBlob = new Blob(localAudioChunks, { type: 'audio/wav' }); // Adjust type as needed
+          setRecordedAudio(audioBlob);
+      };
+  
+      mediaRecorder.current.video.start();
+      mediaRecorder.current.audio.start();
+  }
+
+  
+
   };
+
+  
 
   const stopRecording = () => {
     uploadTranscriptToServer();
@@ -140,20 +183,22 @@ const InterviewSetup = () => {
     setRecordingStatus("inactive");
     setShowChatbot(false);
     if (mediaRecorder.current) {
-      mediaRecorder.current.stop();
+        if (mediaRecorder.current.video) {
+            mediaRecorder.current.video.stop();
+        }
+        if (mediaRecorder.current.audio) {
+            mediaRecorder.current.audio.stop();
+        }
     }
     if (stream) {
-      const audioTracks = stream.getAudioTracks();
-      const videoTracks = stream.getVideoTracks();
+        const audioTracks = stream.getAudioTracks();
+        const videoTracks = stream.getVideoTracks();
 
-      audioTracks.forEach((track) => track.stop());
-      videoTracks.forEach((track) => track.stop());
-  
-      setStream(null);
-
+        audioTracks.forEach((track) => track.stop());
+        videoTracks.forEach((track) => track.stop());
+        setStream(null);
     }
-
-  };
+};
 
   const uploadVideoToServer = (recordedVideo) => {
     // Create a FormData object
@@ -183,9 +228,37 @@ const InterviewSetup = () => {
   };
 
 
+  const uploadAudioToServer = (recordedAudio) => {
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('audio', recordedAudio, "recorded_audio.wav");
+
+    console.log('formdata', formData.get('audio'))
+
+    // Make a POST request to the server
+    fetch('http://localhost:5001/upload-audio', {
+        method: 'POST',
+        body: formData,
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Audio uploaded successfully');
+
+            } else {
+                console.error('Failed to upload audio');
+
+            }
+        })
+        .catch(error => {
+            console.error('Error uploading audio:', error);
+
+        });
+};
+
+
   const uploadTranscriptToServer = async () => {
     try {
-      const serverUrl = 'http://localhost:5001/uploadaudio';
+      const serverUrl = 'http://localhost:5001/upload-transcript';
       const response = await fetch(serverUrl, {
         method: 'POST',
         headers: {
@@ -213,6 +286,7 @@ const InterviewSetup = () => {
   const SendAudioVideo = () => {
       uploadTranscriptToServer();
       uploadVideoToServer(recordedVideo);
+      uploadAudioToServer(recordedAudio);
       
   
     if (stream) {
