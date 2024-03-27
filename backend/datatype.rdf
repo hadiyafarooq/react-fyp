@@ -84,7 +84,7 @@
   <rdf:Description rdf:about="http://programminglanguages.org/ontology#TypesofDataTypes">
     <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#complex"/>
     <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#bytes"/>
-    <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#NoneType"/>
+    
     <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#NotImplementedType"/>
     <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#float"/>
     <ns1:hasChild rdf:resource="http://programminglanguages.org/ontology#dict"/>
@@ -105,11 +105,11 @@
     <ns1:hasMutability>immutable</ns1:hasMutability>
     <ns1:hasDescription>It is a sequence of bytes</ns1:hasDescription>
   </rdf:Description>
-
+<!-- 
    <rdf:Description rdf:about="http://programminglanguages.org/ontology#NoneType">
     <ns1:hasMutability>immutable</ns1:hasMutability>
     <ns1:hasDescription>It is an object representing the absence of a value, often called null in other languages</ns1:hasDescription>
-  </rdf:Description>
+  </rdf:Description> -->
 
   <rdf:Description rdf:about="http://programminglanguages.org/ontology#NotImplementedType">
     <ns1:hasMutability>immutable</ns1:hasMutability>

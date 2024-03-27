@@ -5,6 +5,7 @@ from rdflib import Graph, Namespace
 from rdflib import Graph
 import random
 import subprocess
+import sys
 import os
 import joblib
 import numpy as np
@@ -31,6 +32,7 @@ g.parse("datatype.rdf", format="xml")
 user_language = "C"
 start_node = ns1[user_language]
 wrong_answer = 0
+wa = 0 
 
 def get_child_nodes(language_node):
     children = []
@@ -86,64 +88,59 @@ def extract_keywords(text):
 visited_nodes = set()
 overall_similarity_scores = []
 
+
 def generate_questions(language_node):
     questions = []
     mutability, description = get_mutability_and_description(language_node)
-    if mutability and description:
-        description_question = {"question": f"Can you describe {language_node.split('#')[-1]}?"}
+    
+    # Check if mutability and description are not None
+    if mutability is not None and description is not None:
+        
+        templates = [
+            "Provide a detailed description of {}?",
+            "Elaborate the features of the {} data type?",
+            "Explain the characteristics of {}.",
+            
+            
+        ]
+        
+        template = random.choice(templates)
+        description_question = {"question": template.format(language_node.split('#')[-1])}
         questions.extend([description_question])
-    return questions
-
-def ask_question(question):
-    print(question['question'])
-    return input("Your answer: ")
+    
+    return questions if questions else None
 
 
 
+sys.setrecursionlimit(10000)  
 
-def traverse(language_node):
+def traverse1(language_node, visited_nodes=None):
+    if visited_nodes is None:
+        visited_nodes = set()
+    
     child_nodes = get_child_nodes(language_node)
-
+    questions = [] 
+    
     if not child_nodes:
-        mutability, description = get_mutability_and_description(language_node)
-
-        if mutability or description:
-            questions = generate_questions(language_node)
-            for question in questions:
-                answer = ask_question(question)
-                description_similarity = calculate_similarity(answer, description[0])
-                print(f"Description similarity: {description_similarity}")
-
-                if description_similarity < 0.6:
-                    print("Similarity index is less than 0.6. Asking questions from different nodes.")
-                    wrong_answer += 1
-                    
-                    if wrong_answer >= 3:
-                        print("Consecutive wrong answers limit reached. Moving to the next branch.")
-                        traverse(start_node)
-                        overall_similarity_score = (description_similarity) / 2
-                        overall_similarity_scores.append(overall_similarity_score)
-                        return True
-                else:
-                    print("Similarity index is greater than or equal to 0.6. Backtracking to programming language node.")
-                    traverse(start_node)
-                    overall_similarity_score = description_similarity / 2
-                    overall_similarity_scores.append(overall_similarity_score)
-                    return True
-
+        Q = generate_questions(language_node)
+        if Q:
+            questions.extend(Q)
     else:
-        all_child_nodes_visited = True
         for child_node in child_nodes:
             if child_node not in visited_nodes:
                 visited_nodes.add(child_node)
-                all_child_nodes_visited = False
-                if traverse(child_node):
-                    return True
+                child_questions = traverse1(child_node, visited_nodes)
+                if child_questions:
+                    questions.extend(child_questions)
 
-        if all_child_nodes_visited:
-            print("All child nodes of the programming language node have been visited.")
-            return True
+    return questions
 
+
+
+
+def ask_question(question):
+    print(question['question'])
+    #return input("Your answer: ")
 
 
 
@@ -426,19 +423,19 @@ def login():
 @app.route('/Questions', methods=['POST'])
 def get_questions():
     try:
-        
         user_language = "C"
         start_node = ns1[user_language]
 
-        traverse(start_node)
-        questions = generate_questions(start_node)
+        overall_similarity_scores.clear() 
+        Q = traverse1(start_node)
 
-        return jsonify({'success': True, 'questions': questions}), 200
-
+        if Q is not None:
+            return jsonify({'success': True, 'questions': Q}), 200
+        else:
+            return jsonify({'success': False, 'error': 'No questions generated'}), 500
 
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
-
 
 @app.route('/InterviewData', methods=['GET'])
 def interviewdata():
@@ -469,7 +466,7 @@ def upload_video():
         return jsonify({'error': 'No video file provided'}), 400
 
     video_file = request.files['video']
-    print("video_file : ",video_file)
+    # print("video_file : ",video_file)
 
     # Check if the file is not empty
     if video_file.filename == '':
@@ -479,7 +476,7 @@ def upload_video():
     upload_folder = 'uploads'
     os.makedirs(upload_folder, exist_ok=True)
     video_path = os.path.join(upload_folder, video_file.filename)
-    print("video_path : ",video_path)
+    # print("video_path : ",video_path)
 
     video_file.save(video_path)
     
